@@ -1,5 +1,5 @@
 
-function Home() {
+const HomePage = () => {
   return (
     <div>
       <h1>
@@ -9,4 +9,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomePage
