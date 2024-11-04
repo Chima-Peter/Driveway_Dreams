@@ -3,6 +3,7 @@ import validateEmail from "../../utils/auth/validate_email"
 import validatePassword from "../../utils/auth/validate_password"
 import Password from "./password"
 import Email from "./email"
+import Button from "./button"
 
 // sign up state types
 interface LoginState {
@@ -59,9 +60,9 @@ const Login = () => {
     }
 
   return (
-    <main>
-        <h1>
-            Log In
+    <div className="flex flex-col gap-4">
+        <h1 className="text-[1rem] font-semibold self-center">
+            Login to your account
         </h1>
         <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
             <Email
@@ -72,14 +73,14 @@ const Login = () => {
             password={loginData.password}
             passwordMsg={loginError.passwordMsg}
             handleInputChange={handleInputChange} />
-            <button type="submit" className="text-sm w-[100%] py-4 px-2 border-[#17B3A6] border rounded-2xl bg-[#17B3A6]">
-                Log In
-            </button>
-            <p className="text-xs font-light text-red-600">
+            <Button 
+            isLoading={true}
+            text="Log in" />
+            <p className="text-xs font-medium text-red-600">
                 {}
             </p>
         </form>
-    </main>
+    </div>
   )
 }
 

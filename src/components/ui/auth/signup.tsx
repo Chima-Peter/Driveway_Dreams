@@ -5,6 +5,7 @@ import validatePassword from "../../utils/auth/validate_password"
 import Password from "./password"
 import Email from "./email"
 import Name from "./name"
+import Button from "./button"
 
 // sign up state types
 interface SignupState {
@@ -77,21 +78,23 @@ const SignUp = () => {
     }
 
   return (
-    <main>
-        <h1>
-            Sign Up
+    <div className="flex flex-col gap-4">
+        <h1 className="text-[1rem] font-semibold self-center">
+            Sign up and get started today!
         </h1>
         <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
-            <div className="flex gap-3 flex-col md:flex-col md:justify-between w-[100%]">
+            <div className="flex gap-3 flex-col md:flex-row md:justify-between w-[100%]">
             <Name
+                label='First Name'
                 fieldName="firstname"
                 name={signUpData.firstname}
-                nameMsg={signUpData.lastname}
+                nameMsg={signUpError.firstnameMsg}
                 handleInputChange={handleInputChange}/>
                 <Name
+                label='Last Name'
                 fieldName="lastname"
                 name={signUpData.lastname}
-                nameMsg={signUpData.lastname}
+                nameMsg={signUpError.lastnameMsg}
                 handleInputChange={handleInputChange}/>
             </div>
             <Email
@@ -102,14 +105,14 @@ const SignUp = () => {
             password={signUpData.password}
             passwordMsg={signUpError.passwordMsg}
             handleInputChange={handleInputChange} />
-            <button type="submit" className="text-sm w-[100%] py-4 px-2 border-[#17B3A6] border rounded-2xl bg-[#17B3A6]">
-                Sign up
-            </button>
-            <p className="text-xs font-light text-red-600">
+            <Button 
+            isLoading={true}
+            text="Sign up" />
+            <p className="text-xs font-medium text-red-600">
                 {}
             </p>
         </form>
-    </main>
+    </div>
   )
 }
 

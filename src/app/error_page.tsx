@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import mobileImg from './assets/404-error_mobile.webp'
-import tabletImg from './assets/404-error_tablet.webp'
-import desktopImg from './assets/404-error_desktop.webp'
+import mobileImg from '../assets/404-error_mobile.webp'
+import tabletImg from '../assets/404-error_tablet.webp'
+import desktopImg from '../assets/404-error_desktop.webp'
 
 
 const ErrorPage = () => {
