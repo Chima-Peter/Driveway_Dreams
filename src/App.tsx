@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import HomePage from "./home_page"
+import HomePage from "./app/home_page"
 import ExportNav from "./components/ui/nav/export_nav"
-import ErrorPage from "./error_page"
+import ErrorPage from "./app/error_page"
 
 export function App() {
   return (
