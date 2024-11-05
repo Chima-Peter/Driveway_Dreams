@@ -8,7 +8,7 @@ interface ButtonTypes {
 
 const Button = ({isLoading, text}: ButtonTypes) => {
     return (
-        <motion.button type="submit" className="text-[1rem] text-white font-semibold w-[100%] py-2 px-2 border-[#17B3A6] border rounded-xl bg-[#17B3A6] hover:bg-white">
+        <motion.button type="submit" className="text-[1rem] text-white self-center flex justify-center font-semibold w-[100%] py-2 px-2 border-[#17B3A6] border rounded-xl bg-[#17B3A6] hover:border-[#157D91] hover:bg-[#157D91]">
             {
                     !isLoading && <span>{text}</span>
                 }

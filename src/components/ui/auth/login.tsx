@@ -35,6 +35,13 @@ const Login = () => {
     // collect user input on change event in any of the input fields
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLoginData({ ...loginData, [event.target.name]: event?.target.value })
+        // reset error object
+        setLoginError({
+            emailError: false,
+            emailMsg: '',
+            passwordError: false,
+            passwordMsg: ''
+        })
     }
 
     // function to validate user input and submit form

@@ -49,6 +49,17 @@ const SignUp = () => {
     // collect user input on change event in any of the input fields
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSignUpData({ ...signUpData, [event.target.name]: event?.target.value })
+        // reset error object
+        setSignUpError({
+            firstnameError: false,
+            firstnameMsg: '',
+            lastnameError: false,
+            lastnameMsg: '',
+            emailError: false,
+            emailMsg: '',
+            passwordError: false,
+            passwordMsg: ''
+        })
     }
 
     // function to validate user input and submit form

@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { AuthApi } from "./api/authApi";
 
 // creating redux store
 const store = configureStore({
@@ -6,11 +7,13 @@ const store = configureStore({
         // redux slices for our application state
 
         // redux slices for RTK api
+        [AuthApi.reducerPath]: AuthApi.reducer,
         
     },
-    // middleware to add the RTK CreateAPI middleware we've defined above to our default redux middleware
+    // middleware to add the redux api middleware we defined above to our default redux middleware so it can be run with it
     middleware: (getDefaultMiddleware) => 
         getDefaultMiddleware()
+            .concat(AuthApi.middleware)
 })
 
 export default store;
