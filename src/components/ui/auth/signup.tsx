@@ -6,21 +6,16 @@ import Password from "./password"
 import Email from "./email"
 import Name from "./name"
 import Button from "./button"
-
-// sign up state types
-interface SignupState {
-    firstname: string,
-    lastname: string,
-    email: string,
-    password: string
-}
+import { usePostSignUpMutation } from "../../../redux/api/authApi"
+import { SignUpRequest } from "../../../types"
+import { useNavigate } from "react-router-dom"
 
 // error of sign up state types
 interface SignupError {
-    firstnameError: boolean,
-    firstnameMsg: string,
-    lastnameError: boolean,
-    lastnameMsg: string,
+    first_nameError: boolean,
+    first_nameMsg: string,
+    last_nameError: boolean,
+    last_nameMsg: string,
     emailError: boolean,
     emailMsg: string,
     passwordError: boolean,
@@ -28,33 +23,42 @@ interface SignupError {
 }
 
 const SignUp = () => {
-    const [signUpData, setSignUpData] = useState<SignupState>({
-        firstname: '',
-        lastname: '',
+    const [signUpData, setSignUpData] = useState<SignUpRequest>({
+        first_name: '',
+        last_name: '',
         email: '',
         password: ''
     })
 
     const [signUpError, setSignUpError] = useState<SignupError>({
-        firstnameError: false,
-        firstnameMsg: '',
-        lastnameError: false,
-        lastnameMsg: '',
+        first_nameError: false,
+        first_nameMsg: '',
+        last_nameError: false,
+        last_nameMsg: '',
         emailError: false,
         emailMsg: '',
         passwordError: false,
         passwordMsg: ''
     })
 
+    // unwrap the api request 
+    const [postSignUp, { data }] = usePostSignUpMutation()
+
+    // error message
+    const [error, setError] = useState('')
+
+    // state to display animation while making sign up request
+    const [isLoading, setIsLoading] = useState(false)
+
     // collect user input on change event in any of the input fields
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSignUpData({ ...signUpData, [event.target.name]: event?.target.value })
         // reset error object
         setSignUpError({
-            firstnameError: false,
-            firstnameMsg: '',
-            lastnameError: false,
-            lastnameMsg: '',
+            first_nameError: false,
+            first_nameMsg: '',
+            last_nameError: false,
+            last_nameMsg: '',
             emailError: false,
             emailMsg: '',
             passwordError: false,
@@ -62,50 +66,71 @@ const SignUp = () => {
         })
     }
 
+    const navigate = useNavigate()
+
     // function to validate user input and submit form
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        setIsLoading(true) // start loading animation while making request
 
-        // collect all user input validation result in object
-        const validateInput = {
-            firstName: validateName(signUpData.firstname, 'first name'),
-            lastName: validateName(signUpData.lastname, 'last name'),
-            email: validateEmail(signUpData.email),
-            password: validatePassword(signUpData.password)
-        }
+        // load animation first
+        setTimeout(async () => {
+            // collect all user input validation result in object
+            const validateInput = {
+                first_name: validateName(signUpData.first_name, 'first name'),
+                last_name: validateName(signUpData.last_name, 'last name'),
+                email: validateEmail(signUpData.email),
+                password: validatePassword(signUpData.password)
+            }
 
-        // if they all return false then the user input is valid
-        if (!validateInput.firstName.nameError && !validateInput.lastName.nameError && !validateInput.email.emailError && !validateInput.password.passwordError) {
-            // send request to the api
-        } else {
-            setSignUpError({
-                ...signUpError,
-                firstnameError: validateInput.firstName.nameError, firstnameMsg: validateInput.firstName.nameMsg,
-                lastnameError: validateInput.lastName.nameError, lastnameMsg: validateInput.lastName.nameMsg,
-                emailError: validateInput.email.emailError, emailMsg: validateInput.email.emailMsg,
-                passwordError: validateInput.password.passwordError, passwordMsg: validateInput.password.passwordMsg
-            }) // set the error message as user input is invalid.
-        }
+            // if they all return false then the user input is valid
+            if (!validateInput.first_name.nameError && !validateInput.last_name.nameError && !validateInput.email.emailError && !validateInput.password.passwordError) {
+                // send request to the api
+                try {
+                    await postSignUp(signUpData).unwrap()
+                    if (data?.status === 200) {
+                        navigate('/') // if successful, redirect user.
+                    }
+                    // if it fails, then display error message
+                    else {
+                        setError(data?.message || 'An error occurred while signing up. Try again later.')
+                    }
+                } catch (err) {
+                    setError('Check network connectivity and try again!')
+                } finally {
+                    setIsLoading(false) // stop loading animation when request is done
+                }
+            } else {
+                setSignUpError({
+                    ...signUpError,
+                    first_nameError: validateInput.first_name.nameError, first_nameMsg: validateInput.first_name.nameMsg,
+                    last_nameError: validateInput.last_name.nameError, last_nameMsg: validateInput.last_name.nameMsg,
+                    emailError: validateInput.email.emailError, emailMsg: validateInput.email.emailMsg,
+                    passwordError: validateInput.password.passwordError, passwordMsg: validateInput.password.passwordMsg
+                }) // set the error message as user input is invalid.
+                setIsLoading(false) // stop loading animation when error occurs
+            }
+        }, 1000)
     }
 
   return (
-    <div className="flex flex-col gap-4">
-        <h1 className="text-[1rem] font-semibold self-center">
-            Sign up and get started today!
+    <div className="flex flex-col gap-6">
+        <h1 className="text-[1.2rem] font-semibold self-center translate-y-[-10px]">
+            Create an account with us and buy that dream car!
         </h1>
         <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
             <div className="flex gap-3 flex-col md:flex-row md:justify-between w-[100%]">
-            <Name
+                <Name
                 label='First Name'
-                fieldName="firstname"
-                name={signUpData.firstname}
-                nameMsg={signUpError.firstnameMsg}
+                fieldName="first_name"
+                name={signUpData.first_name}
+                nameMsg={signUpError.first_nameMsg}
                 handleInputChange={handleInputChange}/>
                 <Name
                 label='Last Name'
-                fieldName="lastname"
-                name={signUpData.lastname}
-                nameMsg={signUpError.lastnameMsg}
+                fieldName="last_name"
+                name={signUpData.last_name}
+                nameMsg={signUpError.last_nameMsg}
                 handleInputChange={handleInputChange}/>
             </div>
             <Email
@@ -117,10 +142,10 @@ const SignUp = () => {
             passwordMsg={signUpError.passwordMsg}
             handleInputChange={handleInputChange} />
             <Button 
-            isLoading={true}
+            isLoading={isLoading}
             text="Sign up" />
-            <p className="text-xs font-medium text-red-600">
-                {}
+            <p className="text-xs font-normal text-red-600">
+                {error}
             </p>
         </form>
     </div>

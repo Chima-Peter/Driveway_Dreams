@@ -6,7 +6,7 @@ import { LoginRequest, LoginResponse, SignUpRequest, SignUpResponse } from "../.
 export const AuthApi = createApi({
     reducerPath: 'authApi',                     // name of api slice
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3000'        // define api url
+        baseUrl: 'http://localhost:8000'        // define api url
     }),
     endpoints: (builder) => ({                  // define endpoints
 

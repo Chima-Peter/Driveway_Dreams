@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import scrollToTop from '../../utils/scroll_to_top';
 
@@ -36,6 +36,18 @@ function DesktopNav() {
             </li>
             <li className={`text-sm tracking-wide font-semibold hover:underline`}>
                <NavLink onClick={scrollToTop} to={'/contact-us'}>Contact Us</NavLink>
+            </li>
+         </ul>
+         <ul className='flex gap-4'>
+            <li className={`text-sm tracking-wide font-semibold hover:text-[#17B3A6] hover:bg-white border-white rounded-2xl border py-2 px-4`}>
+               <Link to={'/authenticate'}>
+                  Sign In
+               </Link>
+            </li>
+            <li className={`text-sm tracking-wide font-semibold hover:text-white hover:bg-[#17B3A6] border-white text-[#17B3A6] rounded-2xl border py-2 px-4 bg-white`}>
+               <Link to={'/authenticate'}>
+                  Sign Up
+               </Link>
             </li>
          </ul>
    </nav>

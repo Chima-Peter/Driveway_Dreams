@@ -1,12 +1,14 @@
 export interface SignUpRequest {
-    firstname: string,
-    lastname: string,
+    first_name: string,
+    last_name: string,
     email: string,
     password: string
 }
 
 export interface SignUpResponse {
-    status: boolean,
+    status: number,
+    refresh: string,
+    access: string,
     message: string
 }
 
@@ -17,7 +19,8 @@ export interface LoginRequest {
 
 
 export interface LoginResponse {
-    status: boolean,
+    status: number,
+    refresh: string,
+    access: string,
     message: string,
-    token: string
 }
