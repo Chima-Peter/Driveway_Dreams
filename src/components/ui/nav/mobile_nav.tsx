@@ -45,8 +45,8 @@ function MobileNav() {
 
 
    return (
-      <nav className={`flex flex-col text-white bg-[#17B3A6] w-full gap-4 fixed z-10 border-b border-b-[#17B3A6]  ${isScrolled ? 'shadow-lg' : ''} ${!icon ? 'h-[100%] border-b-0' : ''}`}>
-         <div className="flex w-full justify-between items-center py-2 md:py-5 px-4 md:px-8 lg:px-12">
+      <nav className={`flex flex-col text-white bg-blue-900 w-full gap-4 fixed z-10 border-b border-b-blue-900  ${isScrolled ? 'shadow-lg' : ''} ${!icon ? 'h-[100%] border-b-0' : ''}`}>
+         <div className="flex w-full justify-between items-center py-2 md:py-5 px-4 md:px-8 tablet:px-12">
             <NavLink onClick={closeIcon} to={'/'} className={`font-semibold text-xl`}>
                MACELO AUTO<small className='text-xs'>s</small>
             </NavLink>

@@ -16,7 +16,7 @@ function DesktopNav() {
 
   
   return (
-   <nav className={`flex justify-between text-white bg-[#17B3A6] items-center w-full fixed py-2 md:py-5 z-10 border-b border-b-[#17B3A6] px-4 md:px-8 lg:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
+   <nav className={`flex justify-between text-white bg-blue-900 items-center w-full fixed py-2 md:py-5 z-10 border-b border-b-blue-900 px-4 md:px-8 tablet:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
       <NavLink onClick={scrollToTop} to={'/'} className={`font-semibold text-xl`}>
          MACELO AUTO<small className='text-xs'>s</small>
       </NavLink>
@@ -39,12 +39,12 @@ function DesktopNav() {
             </li>
          </ul>
          <ul className='flex gap-4'>
-            <li className={`text-sm tracking-wide font-semibold hover:text-[#17B3A6] hover:bg-white border-white rounded-2xl border py-2 px-4`}>
+            <li className={`text-sm tracking-wide font-semibold hover:text-blue-900 hover:bg-white border-white rounded-2xl border py-2 px-6`}>
                <Link to={'/authenticate'}>
                   Sign In
                </Link>
             </li>
-            <li className={`text-sm tracking-wide font-semibold hover:text-white hover:bg-[#17B3A6] border-white text-[#17B3A6] rounded-2xl border py-2 px-4 bg-white`}>
+            <li className={`text-sm tracking-wide font-semibold hover:text-white hover:bg-blue-900 border-white text-blue-900 rounded-2xl border py-2 px-6 bg-white`}>
                <Link to={'/authenticate'}>
                   Sign Up
                </Link>

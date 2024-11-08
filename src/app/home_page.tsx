@@ -1,11 +1,11 @@
+import Carousel from "../components/ui/carousel"
 
 const HomePage = () => {
+  
   return (
-    <div>
-      <h1>
-         Hello
-      </h1>
-    </div>
+    <main className="pt-[5%]">
+      <Carousel />
+    </main>
   )
 }
 
