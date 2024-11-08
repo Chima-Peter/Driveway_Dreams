@@ -7,8 +7,6 @@ export interface SignUpRequest {
 
 export interface SignUpResponse {
     status: number,
-    refresh: string,
-    access: string,
     message: string
 }
 
@@ -20,7 +18,5 @@ export interface LoginRequest {
 
 export interface LoginResponse {
     status: number,
-    refresh: string,
-    access: string,
     message: string,
 }

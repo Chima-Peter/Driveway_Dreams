@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { AuthApi } from "./api/authApi";
+import { AuthApi } from "./api/auth_api";
+import AuthSlice from "./slices/auth";
 
 // creating redux store
 const store = configureStore({
     reducer: {
         // redux slices for our application state
+        auth: AuthSlice,   // slice for authentication state
 
         // redux slices for RTK api
         [AuthApi.reducerPath]: AuthApi.reducer,

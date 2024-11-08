@@ -5,7 +5,9 @@ import Password from "./password"
 import Email from "./email"
 import Button from "./button"
 import { Link, useNavigate } from "react-router-dom"
-import { usePostLoginMutation } from "../../../redux/api/authApi"
+import { usePostLoginMutation } from "../../../redux/api/auth_api"
+import { login } from '../../../redux/slices/auth'
+import { useTypedDispatch } from "../../../redux/hooks"
 
 // sign up state types
 interface LoginState {
@@ -45,6 +47,8 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const dispatch = useTypedDispatch()
+
     // collect user input on change event in any of the input fields
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLoginData({ ...loginData, [event.target.name]: event?.target.value })
@@ -75,6 +79,7 @@ const Login = () => {
                 try {
                     await postLogin(loginData).unwrap()
                     if (data?.status === 200) {
+                        dispatch(login()) // dispatch login state to true
                         navigate('/') // if successful, redirect user.
                     }
                     // if it fails, then display error message

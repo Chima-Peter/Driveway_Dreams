@@ -6,9 +6,11 @@ import Password from "./password"
 import Email from "./email"
 import Name from "./name"
 import Button from "./button"
-import { usePostSignUpMutation } from "../../../redux/api/authApi"
+import { usePostSignUpMutation } from "../../../redux/api/auth_api"
 import { SignUpRequest } from "../../../types"
 import { useNavigate } from "react-router-dom"
+import { useTypedDispatch } from "../../../redux/hooks"
+import { signup } from "../../../redux/slices/auth"
 
 // error of sign up state types
 interface SignupError {
@@ -41,8 +43,10 @@ const SignUp = () => {
         passwordMsg: ''
     })
 
-    // unwrap the api request 
+    // the api request 
     const [postSignUp, { data }] = usePostSignUpMutation()
+
+    const dispatch = useTypedDispatch()
 
     // error message
     const [error, setError] = useState('')
@@ -88,7 +92,8 @@ const SignUp = () => {
                 // send request to the api
                 try {
                     await postSignUp(signUpData).unwrap()
-                    if (data?.status === 200) {
+                    if (data?.status === 201) {
+                        dispatch(signup()) // dispatch login state to true
                         navigate('/') // if successful, redirect user.
                     }
                     // if it fails, then display error message
