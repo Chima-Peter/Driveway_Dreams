@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
-li .active {
-    text-decoration: underline;
+.active {
+    border-bottom: 4px solid white
+}
+
+@layer base {
+    @font-face {
+        font-family: 'Nunito';
+        src: url("./assets/fonts/nunito.ttf");
+    }
 }

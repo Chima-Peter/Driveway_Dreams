@@ -1,8 +1,8 @@
 import { useState } from "react"
-import Button from "../components/ui/auth/button"
-import validatePassword from "../components/utils/auth/validate_password"
-import Password from "../components/ui/auth/password"
-import validateConfirmPassword from "../components/utils/auth/validate_confirm_password"
+import Button from "../../components/ui/auth/button"
+import validatePassword from "../../components/utils/auth/validate_password"
+import Password from "../../components/ui/auth/password"
+import validateConfirmPassword from "../../components/utils/auth/validate_confirm_password"
 
 interface ResetPasswordTypes {
     password: string,

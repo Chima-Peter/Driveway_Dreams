@@ -1,6 +1,6 @@
 import { useState } from "react"
-import SignUp from "../components/ui/auth/signup"
-import Login from "../components/ui/auth/login"
+import SignUp from "../../components/ui/auth/signup"
+import Login from "../../components/ui/auth/login"
 
 const AuthPage = () => {
     // toggle between login and sign up components

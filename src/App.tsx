@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./app/home_page"
 import ExportNav from "./components/ui/nav/export_nav"
 import ErrorPage from "./app/error_page"
-import AuthPage from "./app/auth_page"
-import ForgotPasswordPage from "./app/forgot_password"
+import AuthPage from "./app/auth/auth_page"
+import ForgotPasswordPage from "./app/auth/forgot_password"
 
 export function App() {
   return (

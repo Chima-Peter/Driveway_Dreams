@@ -12,7 +12,11 @@ module.exports = {
       'tablet': '850px',
       'lg': '1024px',
     },
-    extend: {}
+    extend: {
+      fontFamily: {
+        "main": ['Nunito']
+      }
+    }
   },
   plugins: [],
 }

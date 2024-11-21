@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Email from "../components/ui/auth/email"
-import Button from "../components/ui/auth/button"
-import validateEmail from "../components/utils/auth/validate_email"
+import Email from "../../components/ui/auth/email"
+import Button from "../../components/ui/auth/button"
+import validateEmail from "../../components/utils/auth/validate_email"
 
 interface ForgotPasswordTypes {
     email: string,

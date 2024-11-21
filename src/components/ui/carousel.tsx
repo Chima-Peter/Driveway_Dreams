@@ -1,15 +1,11 @@
-import { useState, useTransition, useRef, useEffect } from "react";
-import mainImg1 from '../../assets/carousel/desktop/w14.webp'
-import mainImg2 from '../../assets/carousel/desktop/w15.webp'
-import mainImg3 from '../../assets/carousel/desktop/w16.webp'
-import mainImg4 from '../../assets/carousel/desktop/w17.webp'
+import largeImage from '../../assets/images/bg-large.webp'
+import desktopImage from '../../assets/images/bg-desktop.webp'
+import tabletImage from '../../assets/images/bg-tablet.webp'
+import mobileImage from '../../assets/images/bg-mobile.webp'
+import { useState, useRef, useEffect } from 'react'
 
 
 const Carousel = () => {
-    const [image, setImage] = useState(mainImg1)
-
-    // use transition hook
-    const [, startTransition] = useTransition();
 
     const imageRef = useRef<HTMLImageElement>(null); // ref for image
     const containerRef = useRef<HTMLDivElement>(null); // ref for container over image
@@ -31,38 +27,29 @@ const Carousel = () => {
     })
 
 
-    // on containerWidth change, calculate and update the container's height
-    useEffect(() => {
+     // on containerWidth change, calculate and update the container's height
+     useEffect(() => {
         if (imageRef.current && containerWidth > 0) {
         const image = imageRef.current;
         const newHeight = containerWidth / (image.naturalWidth / image.naturalHeight);
         if (containerRef.current) containerRef.current.style.height = `${newHeight}px`;
         }
     }, [containerWidth]); 
-
-    // change image every 10 seconds
-    setTimeout(() => {
-        startTransition(() =>{
-        if (image === mainImg1) setImage(mainImg2)
-        else if (image === mainImg2) setImage(mainImg3)
-        else if (image === mainImg3) setImage(mainImg4)
-        else setImage(mainImg1)
-        })
-    }, 10000)
-
-
+    
     return (
-        <section className="relative">
-            <img src={image} ref={imageRef} alt="Image of car." className='w-[100%]' />
-            <div ref={containerRef} className="w-[100%] bg-[rgba(0,0,0,0.5)] absolute top-0"></div>
-            <div className="flex flex-col gap-3  absolute left-4 md:left-8 tablet:left-12 top-10 md:top-16">
+        <section className="relative font-main">
+            <img 
+                src={mobileImage} 
+                ref={imageRef}
+                srcSet={`${mobileImage} 480w, ${tabletImage} 800w, ${desktopImage} 1200w, ${largeImage} 1920`}
+                sizes='(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px'
+                alt="Image of car." className='w-[100%]' />
+            <div ref={containerRef} className="w-[100%] bg-[rgba(0,0,0,0.5)] absolute top-0" />
+            <div className="flex flex-col gap-3 w-[80%] md:w-[600px] tablet:w-[800px] lg:w-[1000px] absolute left-4 md:left-8 tablet:left-12 top-10 md:top-16">
                 <h1  
-                className='text-white text-4xl md:text-5xl tablet:text-[60px] font-bold'>
-                    Let&rsquo;s Find Your Perfect Car<small className='text-[14px]'>...</small>
+                    className='text-white text-2xl md:text-[44px] md:leading-[46px] tablet:text-[55px] tracking-normal tablet:leading-[52px] font-bold'>
+                    Drive Your Dream Today: Unbeatable Deals on Cars You'll Love!
                 </h1>
-                <p className="tablet:text-lg md:block hidden tracking-wide text-white">
-                    Whether it's speed, style, or comfort, we’ve got you covered.
-                </p>
             </div>
         </section>
     )
