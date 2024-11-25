@@ -1,43 +1,76 @@
 import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function DesktopFooter() {
+function Footer() {
   return (
-   <footer  className=" overflow-hidden flex flex-col gap-5 px-14 items-center bg-blue-950 text-white font-price pt-10 justify-center">
-      <div className="flex gap-2 items-center">
-         <div className="h-[2px] bg-white w-[50vw]"></div>
-         <ul className="flex gap-3">
-            <li className="flex text-xs items-center gap-2">
-               <Link to='/'>
-                  <FaTwitter className="w-5 h-5" />
-               </Link>
-            </li>
-            <li className="flex text-xs items-center gap-2">
-               <Link to='/'>
-                  <FaInstagram className="w-5 h-5"/>
-               </Link>
-            </li>
-            <li className="flex text-xs items-center gap-2">
-               <Link to='/'>
-                  <FaFacebook className="w-5 h-5"/>
-               </Link>
-            </li>
-            <li className="flex text-xs items-center gap-2">
-               <Link to='/'>
-                  <FaLinkedin className="w-5 h-5" />
-               </Link>
-            </li>
-         </ul>
-         <div className="h-[2px] bg-white w-[50vw]"></div>
+   <footer  className="flex gap-16 w-[100%] font-main px-4 md:px-8 tablet:px-12 bg-[#F5F7FB] border-t border-t-gray-300 py-12 items-start">
+      <div className="flex flex-col gap-6">
+         <h6 className="text-3xl text-blue-950 font-extrabold">
+            Driveway Dreams
+         </h6>
+         <p className="text-sm font-medium text-blue-950 opacity-60">
+            Driveway Dreams. 2024. All rights reserved.
+         </p>
+         <div className="flex gap-6">
+            <FaTwitter className="w-7 h-7 text-blue-600" />
+            <FaInstagram className="w-7 h-7 text-blue-600" />
+            <FaFacebook className="w-7 h-7 text-blue-600" />
+            <FaLinkedin className="w-7 h-7 text-blue-600" />
+         </div>
       </div>
-      <h5 className='font-normal md:text-xl'>
-         MACELO AUTO<small className='text-[9px]'>s</small>
-      </h5>
-      <p className="text-[9px] pb-2">
-         Copyright © 2024 Macelo Auto's.
-      </p>
+      <div className="flex flex-col ml-10 gap-6">
+         <h6 className="text-xl font-bold opacity-90 text-blue-950">
+            Driveway Dreams
+         </h6>
+         <div className="flex flex-col gap-4">
+            <Link to={'/buy'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Buy
+            </Link>
+            <Link to={'/how-it-works'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               How it works
+            </Link>
+            <Link to={'/reviews'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Reviews
+            </Link>
+         </div>
+      </div>
+      <div className="flex flex-col gap-6">
+         <h6 className="text-xl font-bold opacity-90 text-blue-950">
+            Services
+         </h6>
+         <div className="flex flex-col gap-4">
+            <p className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Car inspection
+            </p>
+            <p className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Delivery
+            </p>
+            <p  className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Warranty
+            </p>
+            <p  className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Insurance
+            </p>
+            <p  className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Car registration
+            </p>
+         </div>
+      </div>
+      <div className="flex flex-col gap-6">
+         <h6 className="text-xl font-bold opacity-90 text-blue-950">
+            Company
+         </h6>
+         <div className="flex flex-col gap-4">
+            <Link to={'/about-us'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               About us
+            </Link>
+            <Link to={'/contact'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+               Contact
+            </Link>
+         </div>
+      </div>
    </footer> 
   )
 }
 
-export default DesktopFooter
+export default Footer

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const LoginModal = () => {
   return (
-    <div className="w-[300px] rounded-md p-6 bg-white font-main flex flex-col gap-3 absolute top-8 left-[-120px]">
+    <div className="w-[300px] rounded-md p-6 bg-white font-main flex flex-col gap-3 absolute top-8 left-[-120px] shadow-lg border border-gray-100">
         <ul className="flex flex-col gap-3 py-4 border-b border-b-gray-500">
             <Link to={'/favorite-cars'} className="flex gap-4 px-4 py-2 group/item: hover:bg-blue-50 hover:font-semibold items-center">
                 <FaRegHeart className="w-5 h-5 text-black" />

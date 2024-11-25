@@ -27,19 +27,19 @@ function DesktopNav() {
 
   
   return (
-   <nav className={`flex font-main justify-between text-white bg-blue-900 items-center w-full fixed h-[80px] z-10 border-b border-b-blue-900 px-4 md:px-8 tablet:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
+   <nav className={`flex font-main justify-between text-blue-950 bg-white items-center w-full fixed h-[80px] z-10 border-b border-b-gray-300 px-4 md:px-8 tablet:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
       <div className='flex gap-14 h-[100%] items-center'>
          <Link onClick={scrollToTop} to={'/'} className={`font-extrabold text-2xl`}>
-            MACELO AUTO<small className='text-xs'>s</small>
+            Driveway Dreams
          </Link>
             <ul className='text-md font-medium flex gap-8 items-center h-[100%]'>
-               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-white h-[100%]`} onClick={scrollToTop} to={'/buy'}>
+               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/buy'}>
                   Buy
                </NavLink>
-               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-white h-[100%]`} onClick={scrollToTop} to={'/how-it-works'}>
+               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/how-it-works'}>
                   How it works
                </NavLink>
-               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-white h-[100%]`} onClick={scrollToTop} to={'/reviews'}>
+               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/reviews'}>
                   Reviews
                </NavLink>
             </ul>
@@ -49,7 +49,7 @@ function DesktopNav() {
                <FaRegHeart className="cursor-pointer w-5 h-5" />
             </li>
             <li>
-               <button className="flex cursor-pointer gap-2 hover:text-blue-200 items-center" onClick={toggleModal}>
+               <button className="flex cursor-pointer gap-2 hover:text-blue-600 items-center" onClick={toggleModal}>
                   <CgProfile className="w-6 h-6" />                  
                   <p className="font-bold tracking-wide text-sm">
                      Login

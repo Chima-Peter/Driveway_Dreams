@@ -4,6 +4,8 @@ import ExportNav from "./components/ui/nav/export_nav"
 import ErrorPage from "./app/error_page"
 import AuthPage from "./app/auth/auth_page"
 import ForgotPasswordPage from "./app/auth/forgot_password"
+import Footer from "./components/ui/nav/footer"
+import HowItWorks from "./app/how_it_works_page"
 
 export function App() {
   return (
@@ -12,9 +14,11 @@ export function App() {
          <Routes>
             <Route path="*" element={<ErrorPage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="authenticate" element={<AuthPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
          </Routes> 
+         <Footer />
       </BrowserRouter>
   )
 }

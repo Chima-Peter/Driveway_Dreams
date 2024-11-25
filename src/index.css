@@ -4,12 +4,36 @@
 
 
 .active {
-    border-bottom: 4px solid white
+    border-bottom: 4px solid #172554
 }
 
 @layer base {
     @font-face {
         font-family: 'Nunito';
         src: url("./assets/fonts/nunito.ttf");
+    }
+}
+
+@layer utilities {
+    .clip-htw {
+        clip-path: polygon(0 2%, 100% 8%, 100% 92%, 0 100%);
+    }
+    .clip-used {
+        clip-path: polygon(41% 0, 100% 0, 100% 100%, 13% 100%);
+    }
+    .clip-under {
+        clip-path: polygon(14% 0, 100% 0, 100% 18%, 58% 8%);
+    }
+    .clip-installment {
+        clip-path: polygon(0 0, 61% 0, 94% 100%, 0% 100%);
+    }
+    .clip-reviews {
+        clip-path: polygon(0 6%, 100% 3%, 100% 100%, 0% 100%);
+    }
+    .clip-htw_comp {
+        clip-path: polygon(29% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .clip-htw_conc {
+        clip-path: polygon(0 9%, 100% 14%, 100% 100%, 0% 100%);
     }
 }
