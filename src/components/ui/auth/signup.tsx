@@ -2,15 +2,13 @@ import React, { useState } from "react"
 import validateName from "../../utils/auth/validate_name"
 import validateEmail from "../../utils/auth/validate_email"
 import validatePassword from "../../utils/auth/validate_password"
-import Password from "./password"
-import Email from "./email"
-import Name from "./name"
 import Button from "./button"
 import { usePostSignUpMutation } from "../../../redux/api/auth_api"
 import { SignUpRequest } from "../../../types"
 import { useNavigate } from "react-router-dom"
 import { useTypedDispatch } from "../../../redux/hooks"
 import { signup } from "../../../redux/slices/auth"
+import Input from "./input"
 
 // error of sign up state types
 interface SignupError {
@@ -42,6 +40,13 @@ const SignUp = () => {
         passwordError: false,
         passwordMsg: ''
     })
+
+    // show icon for password
+    const [showPassword, setShowPassword] = useState(false)
+
+    const togglePassword =() => {
+        setShowPassword(!showPassword)
+    }
 
     // the api request 
     const [postSignUp, { data }] = usePostSignUpMutation()
@@ -119,28 +124,51 @@ const SignUp = () => {
     }
 
   return (
-    <div className="flex flex-col gap-6">
-        <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
+        <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white px-6 py-6 pb-4 w-[100%]">
             <div className="flex gap-3 flex-col md:flex-row md:justify-between w-[100%]">
-                <Name
-                fieldName="first_name"
-                name={signUpData.first_name}
-                nameMsg={signUpError.first_nameMsg}
-                handleInputChange={handleInputChange}/>
-                <Name
-                fieldName="last_name"
-                name={signUpData.last_name}
-                nameMsg={signUpError.last_nameMsg}
-                handleInputChange={handleInputChange}/>
+                <Input 
+                name="first_name"
+                type="text"
+                value={signUpData.first_name}
+                onInputChange={handleInputChange}
+                placeholder="FIRST NAME"
+                isPassword={false}
+                error={signUpError.first_nameError}
+                errorMessage={signUpError.first_nameMsg}
+                />
+                <Input 
+                name="last_name"
+                type="text"
+                value={signUpData.last_name}
+                onInputChange={handleInputChange}
+                placeholder="LAST NAME"
+                isPassword={false}
+                error={signUpError.last_nameError}
+                errorMessage={signUpError.last_nameMsg}
+                />
             </div>
-            <Email
-            email={signUpData.email}
-            emailMsg={signUpError.emailMsg}
-            handleInputChange={handleInputChange} />
-            <Password 
-            password={signUpData.password}
-            passwordMsg={signUpError.passwordMsg}
-            handleInputChange={handleInputChange} />
+            <Input 
+            name="email"
+            type="email"
+            value={signUpData.email}
+            onInputChange={handleInputChange}
+            placeholder="EMAIL"
+            isPassword={false}
+            error={signUpError.emailError}
+            errorMessage={signUpError.emailMsg}
+            />
+            <Input 
+            name="password"
+            type="password"
+            value={signUpData.password}
+            onInputChange={handleInputChange}
+            placeholder="PASSWORD"
+            isPassword={true}
+            error={signUpError.passwordError}
+            showIcon={showPassword}
+            onIconClick={togglePassword}
+            errorMessage={signUpError.passwordMsg}
+            />
             <Button 
             isLoading={isLoading}
             text="Sign up" />
@@ -148,7 +176,6 @@ const SignUp = () => {
                 {error}
             </p>
         </form>
-    </div>
   )
 }
 

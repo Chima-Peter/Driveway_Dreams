@@ -1,8 +1,8 @@
 import { useState } from "react"
 import Button from "../../components/ui/auth/button"
 import validatePassword from "../../components/utils/auth/validate_password"
-import Password from "../../components/ui/auth/password"
 import validateConfirmPassword from "../../components/utils/auth/validate_confirm_password"
+import Input from "../../components/ui/auth/input"
 
 interface ResetPasswordTypes {
     password: string,
@@ -23,6 +23,13 @@ const ResetPasswordPage = () => {
         confirmPasswordMsg: '',
         confirmPasswordError: false
     })
+
+    // show icon for password
+    const [showPassword, setShowPassword] = useState(false)
+
+    const togglePassword =() => {
+        setShowPassword(!showPassword)
+    }
 
     // handle input change and remove error message temporarily
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,14 +76,30 @@ const ResetPasswordPage = () => {
                 </p>
             </div>
             <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
-                <Password
-                    password="password"
-                    passwordMsg={resetPassword.passwordMsg}
-                    handleInputChange={handleInputChange} />
-                <Password
-                    password="confirmPassword"
-                    passwordMsg={resetPassword.confirmPasswordMsg}
-                    handleInputChange={handleInputChange} />
+                <Input 
+                name="PASSWORD"
+                type="password"
+                value={resetPassword.password}
+                onInputChange={handleInputChange}
+                placeholder="EMAIL"
+                isPassword={false}
+                showIcon={showPassword}
+                onIconClick={togglePassword}
+                error={resetPassword.passwordError}
+                errorMessage={resetPassword.passwordMsg}
+                />
+                <Input 
+                name="CONFIRM PASSWORD"
+                type="password"
+                value={resetPassword.confirmPassword}
+                onInputChange={handleInputChange}
+                placeholder="EMAIL"
+                isPassword={false}
+                showIcon={showPassword}
+                onIconClick={togglePassword}
+                error={resetPassword.confirmPasswordError}
+                errorMessage={resetPassword.confirmPasswordMsg}
+                />
                 <Button 
                 isLoading={true}
                 text="Send" />

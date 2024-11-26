@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Email from "../../components/ui/auth/email"
 import Button from "../../components/ui/auth/button"
 import validateEmail from "../../components/utils/auth/validate_email"
+import Input from "../../components/ui/auth/input"
 
 interface ForgotPasswordTypes {
     email: string,
@@ -52,10 +52,16 @@ const ForgotPasswordPage = () => {
                 </p>
             </div>
             <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
-                <Email
-                email={forgotPassword.email}
-                emailMsg={forgotPassword.emailMsg}
-                handleInputChange={handleInputChange} />
+                <Input 
+                name="email"
+                type="email"
+                value={forgotPassword.email}
+                onInputChange={handleInputChange}
+                placeholder="EMAIL"
+                isPassword={false}
+                error={forgotPassword.emailError}
+                errorMessage={forgotPassword.emailMsg}
+                />
                 <Button 
                 isLoading={true}
                 text="Send" />

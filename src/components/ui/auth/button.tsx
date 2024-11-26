@@ -8,7 +8,8 @@ interface ButtonTypes {
 
 const Button = ({isLoading, text}: ButtonTypes) => {
     return (
-        <motion.button type="submit" className="text-[1rem] text-white self-center flex justify-center font-semibold w-[100%] py-2 px-2 border-[#17B3A6] border rounded-xl bg-[#17B3A6] hover:border-[#157D91] hover:bg-[#157D91]">
+        <motion.button type="submit" 
+            className="text-[1rem] text-white self-center flex justify-center font-semibold w-[100%] mt-4 p-3 rounded-md bg-gradient-to-r from-blue-600 to-blue-900 hover:from-blue-900 hover:to-blue-900 shadow-2xl hover:shadow-blue-900">
             {
                     !isLoading && <span>{text}</span>
                 }
@@ -18,7 +19,7 @@ const Button = ({isLoading, text}: ButtonTypes) => {
                         ease: 'linear',
                         duration: 0.3
                     }}
-                    className='w-4 p-1 h-4 border-t-2 border-b-2 border-solid border-r-0 border-red border-l-2 rounded-full hover:bg-[#17B3A6]'></motion.div>
+                    className='w-6 p-3 h-6 border-t-2 border-b-2 border-solid border-r-0 border-red border-l-2 rounded-full'></motion.div>
                 }
             </motion.button>
     )
