@@ -15,6 +15,9 @@ module.exports = {
     extend: {
       fontFamily: {
         "main": ['Nunito']
+      },
+      backgroundImage: {
+        'review': "url('/src/assets/images/reviews.webp)"
       }
     }
   },

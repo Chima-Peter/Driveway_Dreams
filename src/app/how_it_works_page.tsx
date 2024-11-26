@@ -7,12 +7,16 @@ import HowItWorksComponent from '../components/ui/htw/htw_component';
 import htwImage1 from '../assets/images/how_it_works/how-carvago-works-hero.webp'
 import footer_htw from '../assets/images/how_it_works/footer_htw.webp'
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 
 
 
 
-const HowItWorks = () => {
+const HowItWorksPage = () => {
+    // ref for making the steps get focus once button is clicked
+    const stepsRef = useRef<HTMLDivElement>(null)
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -29,6 +33,12 @@ const HowItWorks = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       };
+
+      // function for focusing ref
+      const focusSteps = () => {
+        if (stepsRef.current)
+            stepsRef.current.scrollIntoView({ behavior: 'smooth' })
+      }
       
   return (
     <main className='flex flex-col gap-12 pt-[80px] font-main'>
@@ -46,14 +56,14 @@ const HowItWorks = () => {
                 </motion.h1>
                 <motion.p 
                     variants={childVariants}
-                    className='font-bold text-[16px] leading-8 w-[400px] text-blue-950'
->
+                    className='font-bold text-[16px] leading-8 w-[400px] text-blue-950'>
                     Simply. Choose a car. We will arrange a detailed inspection. Based on that you can decide whether you want the car. We then buy it, arrange an extended warranty, register it and deliver it to you.
                 </motion.p>
                 <motion.button 
                     variants={childVariants}
                     aria-label="Learn more about how Driveway Dreams works"
                     className='flex gap-2 rounded-md bg-gradient-to-r py-4 px-8 w-fit from-blue-700 uppercase to-blue-950 text-white outline-none shadow-md hover:from-blue-900 hover:to-blue-900 font-bold text-sm items-center transition-transform transform hover:scale-105'
+                    onClick={focusSteps}
                     >
                     <IoMdArrowRoundDown className='text-white w-5 h-5' />
                     <p>
@@ -67,7 +77,7 @@ const HowItWorks = () => {
             </div>
         </section>
 
-        <HowItWorksComponent />
+        <HowItWorksComponent ref={stepsRef} />
 
         <section className='bg-[#EDF1F8] clip-htw_conc w-[100%] py-[180px] flex flex-col gap-12 items-center'>
             <h3 className='text-3xl text-blue-950 font-extrabold w-[600px] text-center leading-12 relative'>
@@ -97,4 +107,4 @@ const HowItWorks = () => {
   )
 }
 
-export default HowItWorks
+export default HowItWorksPage

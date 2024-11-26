@@ -1,5 +1,6 @@
 import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import scrollToTop from "../../utils/scroll_to_top";
 
 function Footer() {
   return (
@@ -23,13 +24,13 @@ function Footer() {
             Driveway Dreams
          </h6>
          <div className="flex flex-col gap-4">
-            <Link to={'/buy'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/buy'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                Buy
             </Link>
-            <Link to={'/how-it-works'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/how-it-works'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                How it works
             </Link>
-            <Link to={'/reviews'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/reviews'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                Reviews
             </Link>
          </div>
@@ -61,10 +62,10 @@ function Footer() {
             Company
          </h6>
          <div className="flex flex-col gap-4">
-            <Link to={'/about-us'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/about-us'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                About us
             </Link>
-            <Link to={'/contact'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/contact'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                Contact
             </Link>
          </div>

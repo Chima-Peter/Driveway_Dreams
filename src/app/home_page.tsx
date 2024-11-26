@@ -136,10 +136,11 @@ const HomePage = () => {
       icon: <SiMazda className="w-10 h-10" />
     }
   ];
+
     
 
   return (
-    <main className="font-main pt-[5%] w-[100%] flex flex-col gap-16">
+    <main className="font-main pt-[5%] w-[100%] flex flex-col gap-16 overflow-hidden">
       <HomeBg />
 
       <CarSlides />
@@ -187,7 +188,7 @@ const HomePage = () => {
             <h3 className="text-blue-900 font-extrabold text-2xl tracking-tight">
               Buy a car from your sofa
             </h3>
-            <Link to="/buy" className="w-[100%] bg-gradient-to-r tracking-wider from-blue-600 to-blue-950 shadow-md hover:shadow-lg hover:from-blue-900 hover:to-blue-900 text-white font-extrabold text-[12px] py-3 text-center px-6 rounded-lg">
+            <Link to="/cars" className="w-[100%] bg-gradient-to-r tracking-wider from-blue-600 to-blue-950 shadow-md hover:shadow-lg hover:from-blue-900 hover:to-blue-900 text-white font-extrabold text-[12px] py-3 text-center px-6 rounded-lg">
               GET ONE TODAY!
             </Link>
           </motion.div>
@@ -414,7 +415,7 @@ const HomePage = () => {
                     <p className="text-blue-950 font-bold text-sm">
                       {review.carPurchased}
                     </p>
-                    <Link to={`/${review.carPurchased.toLowerCase()}`} className="text-blue-600 underline font-bold text-sm">
+                    <Link to={`/cars/${review.carPurchased.toLowerCase()}`} className="text-blue-600 underline font-bold text-sm">
                       Check out similar cars
                     </Link>
                   </div>
@@ -432,7 +433,7 @@ const HomePage = () => {
               <h5 className="uppercase text-blue-950 leading-16 tracking-wide text-3xl font-extrabold">
                 Your next car is waiting here...
               </h5>
-              <Link to={'/buy'} className="text-white outline-none bg-gradient-to-r from-blue-600 to-blue-950 font-bold w-fit py-3 px-6 rounded-md shadow-2xl hover:to-blue-600 animate-bounce hover:animate-none hover:shadow-blue-600">
+              <Link to={'/cars'} className="text-white outline-none bg-gradient-to-r from-blue-600 to-blue-950 font-bold w-fit py-3 px-6 rounded-md shadow-2xl hover:to-blue-600 animate-bounce hover:animate-none hover:shadow-blue-600">
                 GET STARTED
               </Link>
             </div>

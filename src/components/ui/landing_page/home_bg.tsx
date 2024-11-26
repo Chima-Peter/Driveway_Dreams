@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { motion } from 'motion/react'
 
 import HomeBox from './home_box'
 
@@ -38,8 +39,31 @@ const HomeBg = () => {
         }
     }, [containerWidth])
     
+    
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.5,
+            duration: 0.5,
+            ease: "easeInOut",
+        },
+        },
+    }
+    
+    const childVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0 }
+    }
+
+
     return (
-        <section className="relative font-main">
+        <motion.section 
+            className="relative font-main"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}>
             <img 
                 src={mobileImage} 
                 ref={imageRef}
@@ -48,13 +72,19 @@ const HomeBg = () => {
                 alt="Image of car." className='w-[100%]' />
             <div ref={containerRef} className="w-[100%] bg-[rgba(0,0,0,0.5)] absolute top-0" />
             <div className="flex flex-col gap-3 w-[80%] md:w-[600px] tablet:w-[800px] absolute left-4 md:left-8 tablet:left-10 top-10 md:top-16 tablet:top-20">
-                <h1  
-                    className='text-white text-2xl md:text-[44px] md:leading-[46px] tablet:text-[55px] tracking-normal tablet:leading-[52px] lg:leading-[60px] font-bold'>
+                <motion.h1  
+                    className='text-white text-2xl md:text-[44px] md:leading-[46px] tablet:text-[55px] tracking-normal tablet:leading-[52px] lg:leading-[60px] font-bold'
+                    variants={childVariants}
+                    transition={{ duration: 0.5 }}>
                     Drive Your Dream Today: Unbeatable Deals on Cars You'll Love!
-                </h1>
+                </motion.h1>
             </div>
-            <HomeBox isRelative={true} />
-        </section>
+            <motion.div
+                variants={childVariants}
+                transition={{ duration: 0.5 }}>
+                <HomeBox isRelative={true} />
+            </motion.div>
+        </motion.section>
     )
 }
 

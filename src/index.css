@@ -36,4 +36,7 @@
     .clip-htw_conc {
         clip-path: polygon(0 9%, 100% 14%, 100% 100%, 0% 100%);
     }
+    .clip_review {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+    }
 }

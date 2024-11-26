@@ -51,7 +51,9 @@ const CarSlides = () => {
   };
 
   return (
-    <section className="flex flex-col gap-8 mt-[130px] px-4 md:px-8 tablet:px-12 w-[100%] overflow-hidden">
+    <motion.section 
+      className="flex flex-col gap-8 mt-[130px] px-4 md:px-8 tablet:px-12 w-[100%] overflow-hidden"
+      initial={{ x: 100 }} whileInView={{ x: 0 }} viewport={{ amount: 0.3, once: true }} transition={{ duration: 0.5, ease: 'easeInOut' }}>
       {/* Section Header */}
       <h2 className="text-3xl tracking-tight font-extrabold text-blue-950">
         Popular at Driveway Dreams
@@ -110,7 +112,7 @@ const CarSlides = () => {
           <GrNext className="w-5 h-5 text-blue-600" />
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

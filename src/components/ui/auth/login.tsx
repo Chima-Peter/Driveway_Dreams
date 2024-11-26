@@ -103,11 +103,10 @@ const Login = () => {
     }
 
   return (
-    <div className="flex flex-col gap-4">
-        <h1 className="text-[1.2rem] font-semibold self-center translate-y-[-10px]">
-            Get back in and purchase that car!
-        </h1>
-        <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
+        <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%] bg-white p-6">
+            <p className="font-extrabold text-sm text-blue-950">
+                LOGIN
+            </p>
             <Email
             email={loginData.email}
             emailMsg={loginError.emailMsg}
@@ -116,7 +115,7 @@ const Login = () => {
             password={loginData.password}
             passwordMsg={loginError.passwordMsg}
             handleInputChange={handleInputChange} />
-            <Link to={'forgot-password'} className="text-xs translate-y-[-10px] self-end text-[#17B3A6] font-medium tracking-wide underline">
+            <Link to={'forgot-password'} className="text-sm translate-y-[-10px] self-end text-blue-800 font-bold">
                 Forgot your password?
             </Link>
             <Button 
@@ -126,7 +125,6 @@ const Login = () => {
                 {error}
             </p>
         </form>
-    </div>
   )
 }
 

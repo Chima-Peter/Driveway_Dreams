@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { motion } from 'motion/react'
 
 import { CiClock2 } from "react-icons/ci";
@@ -18,7 +19,7 @@ import sub_htw3 from '../../../assets/images/how_it_works/sub_htw3.webp'
 
 
 
-const HowItWorksComponent = () => {
+const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) => {
     const how_it_works = [
         [
             {
@@ -97,7 +98,7 @@ const HowItWorksComponent = () => {
     return (
         <section 
             className="flex flex-col gap-8 pl-4 md:pl-8 tablet:pl-12 w-[100%] mt-28 overflow-hidden" >
-            <div className="flex justify-between">
+            <div className="flex justify-between" ref={ref}>
                 <motion.div 
                     className='flex gap-12 items-start'
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
@@ -375,6 +376,6 @@ const HowItWorksComponent = () => {
             </div>
         </section>
     )
-}
+})
 
 export default HowItWorksComponent

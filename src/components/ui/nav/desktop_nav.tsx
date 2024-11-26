@@ -27,13 +27,13 @@ function DesktopNav() {
 
   
   return (
-   <nav className={`flex font-main justify-between text-blue-950 bg-white items-center w-full fixed h-[80px] z-10 border-b border-b-gray-300 px-4 md:px-8 tablet:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
+   <nav className={`flex font-main justify-between text-blue-950 bg-white items-center w-full fixed h-[80px] border-b border-b-gray-300 px-4 z-30 md:px-8 tablet:px-12 ${isScrolled ? ' shadow-lg' : ''}`}>
       <div className='flex gap-14 h-[100%] items-center'>
          <Link onClick={scrollToTop} to={'/'} className={`font-extrabold text-2xl`}>
             Driveway Dreams
          </Link>
             <ul className='text-md font-medium flex gap-8 items-center h-[100%]'>
-               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/buy'}>
+               <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/cars'}>
                   Buy
                </NavLink>
                <NavLink className={`text-[14px] font-semibold flex items-center hover:border-b-4 hover:border-b-[#172554] h-[100%]`} onClick={scrollToTop} to={'/how-it-works'}>

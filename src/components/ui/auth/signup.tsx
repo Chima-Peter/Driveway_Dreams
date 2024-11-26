@@ -120,19 +120,14 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col gap-6">
-        <h1 className="text-[1.2rem] font-semibold self-center translate-y-[-10px]">
-            Create an account with us and buy that dream car!
-        </h1>
         <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3 w-[100%]">
             <div className="flex gap-3 flex-col md:flex-row md:justify-between w-[100%]">
                 <Name
-                label='First Name'
                 fieldName="first_name"
                 name={signUpData.first_name}
                 nameMsg={signUpError.first_nameMsg}
                 handleInputChange={handleInputChange}/>
                 <Name
-                label='Last Name'
                 fieldName="last_name"
                 name={signUpData.last_name}
                 nameMsg={signUpError.last_nameMsg}
