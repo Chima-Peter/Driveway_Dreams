@@ -62,7 +62,7 @@ function Footer() {
             Company
          </h6>
          <div className="flex flex-col gap-4">
-            <Link  onClick={scrollToTop}  to={'/about-us'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
+            <Link  onClick={scrollToTop}  to={'/'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >
                About us
             </Link>
             <Link  onClick={scrollToTop}  to={'/contact'} className="text-sm text-blue-950 font-medium opacity-60 hover:opacity-100 hover:font-bold" >

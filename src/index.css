@@ -39,4 +39,13 @@
     .clip_review {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
     }
+    .customScroll::-webkit-scrollbar {
+        width: 5px;
+        height: 10px;
+        background-color: inherit;
+     }
+     .customScroll::-webkit-scrollbar-thumb {
+        background-color: lightgray;
+        border-radius: 0px 10px 10px 0;
+     }
 }

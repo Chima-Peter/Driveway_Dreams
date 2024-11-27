@@ -1,16 +1,21 @@
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+
+import { motion } from 'motion/react'
+
 import { FaRegHeart, FaChevronDown } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 
 
-import { Link, NavLink } from 'react-router-dom'
-import { useEffect, useState } from 'react';
 import scrollToTop from '../../utils/scroll_to_top';
 import LoginModal from "./login_modal";
-import { FaChevronUp } from "react-icons/fa6";
+
 
 function DesktopNav() {
    const [isScrolled, setIsScrolled] = useState(false)
    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+
+   const location = useLocation();
 
    // onscroll event
    useEffect(() => {
@@ -20,6 +25,11 @@ function DesktopNav() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // whenever user navigates away from current window, close the minor login tab
+  useEffect(() => {
+   setIsLoginModalOpen(false)
+  }, [location.pathname])
 
   const toggleModal = () => {
    setIsLoginModalOpen(!isLoginModalOpen);
@@ -54,8 +64,11 @@ function DesktopNav() {
                   <p className="font-bold tracking-wide text-sm">
                      Login
                   </p>
-                  { !isLoginModalOpen && <FaChevronDown className="w-3 h-3" /> }
-                  { isLoginModalOpen && <FaChevronUp className="w-3 h-3" /> }
+                  <motion.div 
+                     animate={{ rotate: isLoginModalOpen ? 180 : 0 }} // Rotate arrow on toggle
+                     transition={{ duration: 0.3 }}>
+                     <FaChevronDown className="w-3 h-3" />
+                  </motion.div>
                </button>
                {
                   isLoginModalOpen && <LoginModal />

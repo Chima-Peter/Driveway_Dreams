@@ -65,7 +65,9 @@ const HowItWorksPage = () => {
                     className='flex gap-2 rounded-md bg-gradient-to-r py-4 px-8 w-fit from-blue-700 uppercase to-blue-950 text-white outline-none shadow-md hover:from-blue-900 hover:to-blue-900 font-bold text-sm items-center transition-transform transform hover:scale-105'
                     onClick={focusSteps}
                     >
-                    <IoMdArrowRoundDown className='text-white w-5 h-5' />
+                    <motion.div initial={{ y: -10 }} animate={{ y: 5 }} transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}>
+                        <IoMdArrowRoundDown className='text-white w-5 h-5' />
+                    </motion.div>
                     <p>
                         I want to know more
                     </p>
