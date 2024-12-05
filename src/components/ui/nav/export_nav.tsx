@@ -1,6 +1,7 @@
 import MediaQuery from 'react-responsive'
 import MobileNav from './mobile_nav.js'
 import DesktopNav from './desktop_nav.js'
+
 import ModalProvider from '../../context/modal_context.js'
 
 

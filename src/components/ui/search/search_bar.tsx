@@ -6,6 +6,7 @@ import { GoHistory } from "react-icons/go";
 
 import AllSearchTab from "./all_search_tab";
 import HistoryTab from "./history_tab";
+import SearchProvider from "../../context/search_context";
 
 
 
@@ -63,7 +64,9 @@ const SearchBar = () => {
                 transition={{ duration: 0.5 }}
                 className="pb-6"
             >
-                {selectedTab.content}
+                <SearchProvider>
+                    {selectedTab.content}
+                </SearchProvider>
             </motion.div>
         </AnimatePresence>
     </aside>

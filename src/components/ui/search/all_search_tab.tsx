@@ -1,13 +1,16 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react'
 
 import { AiFillPlusCircle } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa6";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
+
 import FilterBox from './filter_box';
-import { useState } from 'react';
+import useSearchContext from '../../hooks/search_hook';
 
 
-const AllSearchTab = () => {
+const AllSearchTab = () => {    
     // state to control when the modal for any filter should be opened or closed
     const [filterControl, setFilterControl] = useState([
         false, // price from
@@ -23,22 +26,31 @@ const AllSearchTab = () => {
     ])
 
     // data for price
-    const priceData = [ '5,000', '10,000', '15,000', '20,000', '25,000', '30,000', '35,000', '40,000', '45,000', '50,000', '55,000', '60,000', '65,000', '70,000', '75,000', '80,000', '85,000', '90,000', '95,000', '100,000' ]
+    const priceData = [ 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000, 70000, 75000, 80000, 85000, 90000, 95000, 100000 ]
 
-    // data for registration
-    const registrationData = [ '2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004' ]
 
-    // data for mileage
-    const mileageData = [ '10,000', '50,000', '100,000', '150,000', '200,000', '250,000', '300,000', '350,000', '400,000', '450,000', '500,000', '550,000', '600,000', '650,000', '700,000', '750,000', '800,000', '850,000', '900,000', '950,000', '1,000,000' ]
+    // // data for mileage
+    // const mileageData = [ '10,000', '50,000', '100,000', '150,000', '200,000', '250,000', '300,000', '350,000', '400,000', '450,000', '500,000', '550,000', '600,000', '650,000', '700,000', '750,000', '800,000', '850,000', '900,000', '950,000', '1,000,000' ]
 
     // data for fuel
     const fuelData = [ 'Petrol', 'Diesel', 'CNG', 'LPG' ]
 
     // data for power in hp
-    const powerData = [ '34hp', '50hp', '59hp', '74hp', '89hp', '99hp', '117hp', '129hp', '148hp', '197hp', '248hp', '299hp', '353hp', '397hp' ]
+    // const powerData = [ '34hp', '50hp', '59hp', '74hp', '89hp', '99hp', '117hp', '129hp', '148hp', '197hp', '248hp', '299hp', '353hp', '397hp' ]
 
     // data for vehicle type
     const vehicleTypeData = [ 'Hatchback', 'Sedan', 'SUV', 'Crossover', 'Pickup Trucks', 'Hybrid', 'Electric', 'Wagons', 'Coupes', 'Convertibles', 'Vans' ]
+
+
+    // context state for filters
+    const { search, setSearch } = useSearchContext()
+
+    // error for managing price
+    const [error, setError] = useState(false)
+
+    useEffect(() => {
+        search.price_from > search.price_to ? setError(true) : setError(false)
+    }, [search])
 
     // function to change which modal is displayed
     const changeFilterModal = (index: number) => {
@@ -46,8 +58,43 @@ const AllSearchTab = () => {
         temp[index] = !filterControl[index]
         setFilterControl(temp)
     }
+
+    // set the choice of user into search object
+    const collectUserSearch = (name: string, value: string) => {
+        setSearch({ ...search, [name]: value}) 
+    } 
+
+
   return (
     <div className="text-blue-950 flex flex-col px-6 gap-6">
+        <section className='flex gap-2 w-[100%] flex-col'>
+            <div className='flex gap-2 w-[100%] flex-wrap'>
+                {
+                    Object.entries(search).map(([key, value]) => (
+                        (value !== '' && value !== 0) && <button onClick={() => collectUserSearch(key, '')} key={key} className='rounded-2xl py-2 px-3 bg-blue-600 text-white font-bold shadow-lg hover:shadow-xl text-sm flex gap-3 items-center'>
+                            <div className='flex flex-col items-center'>
+                                <p className='text-[10px] font-bold'>
+                                    {key}
+                                </p>
+                                <span>
+                                    {
+                                        typeof value === 'number' ? value.toLocaleString() : value
+                                    }
+                                </span>
+                            </div>
+                            <IoClose className='text-white w-6 h-6' />
+                    </button>
+                    ))
+                }
+            </div>
+            {
+                error && <p className='text-[12px] font-semibold text-red-600'>
+                    price_from can't be more than price_to
+                </p>
+            }
+        </section>
+
+
         <section className="flex flex-col gap-2">
             <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
                 Make and Model
@@ -80,7 +127,7 @@ const AllSearchTab = () => {
                         <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
                     </motion.span>
                     {
-                        filterControl[0] && <FilterBox options={priceData} />
+                        filterControl[0] && <FilterBox name='price_from' price={priceData} />
                     }
                 </button>
                 <button 
@@ -95,65 +142,13 @@ const AllSearchTab = () => {
                         <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
                     </motion.span>
                     {
-                        filterControl[1] && <FilterBox options={priceData} />
-                    }
-                </button>
-            </div>
-            <div className="flex flex-col gap-3 mt-2">
-                <label className="flex gap-3 items-center">
-                    <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5 accent-blue-600 peer outline-none" />
-                    <p className="text-[15px] font-medium text-gray-700 tracking-wide cursor-pointer peer-checked:font-bold peer-checked:text-black">
-                        VAT deduction
-                    </p>
-                </label>
-                <label className="flex gap-3 items-center">
-                    <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5 accent-blue-600 peer outline-none" />
-                    <p className="text-[15px] font-medium text-gray-700 tracking-wide cursor-pointer peer-checked:font-bold peer-checked:text-black">
-                        Discounted cars
-                    </p>
-                </label>
-            </div>
-        </section>
-
-        <section className="flex flex-col gap-2">
-            <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
-                REGISTRATION
-            </h3>
-            <div className="w-[100%] rounded-md border border-gray-600 flex justify-between items-center">
-                <button 
-                    className="w-[50%] flex justify-between outline-none py-[2.5px] items-center pl-3 px-2 border-r border-r-gray-600 relative"
-                    onClick={() => changeFilterModal(2)}>
-                    <span className="text-[15px] font-medium text-gray-700">
-                        From
-                    </span>
-                    <motion.span
-                        animate={{ rotate: filterControl[2] ? 180 : 0 }}
-                        transition={{ duration: 0.5, ease: 'easeInOut' }}>
-                        <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
-                    </motion.span>
-                    {
-                        filterControl[2] && <FilterBox options={registrationData} />
-                    }
-                </button>
-                <button 
-                    className="w-[50%] flex justify-between outline-none py-[2.5px] items-center pl-3 px-2 relative"
-                    onClick={() => changeFilterModal(3)}>
-                    <span className="text-[15px] font-medium text-gray-700">
-                        To
-                    </span>
-                    <motion.span
-                        animate={{ rotate: filterControl[3] ? 180 : 0 }}
-                        transition={{ duration: 0.5, ease: 'easeInOut' }}>
-                        <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
-                    </motion.span>
-                    {
-                        filterControl[3] && <FilterBox options={registrationData} />
+                        filterControl[1] && <FilterBox name='price_to' price={priceData} />
                     }
                 </button>
             </div>
         </section>
 
-        <section className="flex flex-col gap-2">
+        {/* <section className="flex flex-col gap-2">
             <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
                 MILEAGE
             </h3>
@@ -189,31 +184,17 @@ const AllSearchTab = () => {
                     }
                 </button>
             </div>
-        </section>
-
-        <section className="flex flex-col gap-2">
-            <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
-                TRANSMISSION
-            </h3>
-            <div className="w-[100%] rounded-md border border-gray-600 flex justify-between items-center">
-                <button className="w-[50%] py-[6px] outline-none tracking-wide text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
-                    Automatic
-                </button>
-                <button className="w-[50%] py-[6px] outline-none tracking-wide text-[15px] font-semibold text-gray-700">
-                    Manual
-                </button>
-            </div>
-        </section>
+        </section> */}
 
         <section className="flex flex-col gap-2">
             <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
                 FUEL
             </h3>
             <div className="w-[100%] relative rounded-md border border-gray-600 flex justify-between items-center">
-                <button className="w-[45%] relative py-[6px] tracking-wide outline-none text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
+                <button onClick={() => collectUserSearch('fuel', 'diesel')} className="w-[45%] relative py-[6px] tracking-wide outline-none text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
                     Diesel
                 </button>
-                <button className="w-[45%] py-[6px] tracking-wide outline-none text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
+                <button onClick={() => collectUserSearch('fuel', 'petrol')} className="w-[45%] py-[6px] tracking-wide outline-none text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
                     Petrol
                 </button>
                 <button onClick={() => changeFilterModal(6)}>
@@ -223,13 +204,13 @@ const AllSearchTab = () => {
                         <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
                     </motion.span>
                     {
-                        filterControl[6] && <FilterBox options={fuelData} />
+                        filterControl[6] && <FilterBox name='fuel' options={fuelData} />
                     }
                 </button>
             </div>
         </section>
 
-        <section className="flex flex-col gap-2">
+        {/* <section className="flex flex-col gap-2">
             <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
                 POWER
             </h3>
@@ -265,6 +246,20 @@ const AllSearchTab = () => {
                     }
                 </button>
             </div>
+        </section> */}
+        
+        <section className="flex flex-col gap-2">
+            <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
+                Vehicle Condition
+            </h3>
+            <div className="w-[100%] rounded-md border border-gray-600 flex justify-between items-center">
+                <button onClick={() => collectUserSearch('condition', 'new')} className="w-[50%] py-[6px] outline-none tracking-wide text-[15px] font-semibold text-gray-700 border-r border-r-gray-600">
+                    New
+                </button>
+                <button onClick={() => collectUserSearch('condition', 'used')} className="w-[50%] py-[6px] outline-none tracking-wide text-[15px] font-semibold text-gray-700">
+                    Used
+                </button>
+            </div>
         </section>
 
         <section className="flex flex-col gap-2">
@@ -283,27 +278,27 @@ const AllSearchTab = () => {
                         <RiArrowDropDownLine className="w-8 h-8 text-gray-500" />
                     </motion.span>
                     {
-                        filterControl[9] && <FilterBox options={vehicleTypeData} />
+                        filterControl[9] && <FilterBox name='category' options={vehicleTypeData} />
                     }
             </button>
         </section>
 
         <section className="flex flex-col gap-2">
             <h3 className="text-[13px] text-blue-950 font-extrabold uppercase">
-                Exterior Color
+                Vehicle Color
             </h3>
             <div className="w-[100%] flex flex-wrap mt-4 gap-2">
-                <motion.button className="w-7 h-7 rounded-full bg-white border border-gray-400 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-black border border-black outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-red-500 border border-red-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-blue-500 border border-blue-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-purple-500 border border-purple-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-green-500 border border-green-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-orange-500 border border-orange-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-yellow-500 border border-yellow-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-cyan-500 border border-cyan-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-indigo-500 border border-indigo-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
-                <motion.button className="w-7 h-7 rounded-full bg-violet-500 border border-violet-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'white')}  className="w-7 h-7 rounded-full bg-white border border-gray-400 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'black')}  className="w-7 h-7 rounded-full bg-black border border-black outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'red')}  className="w-7 h-7 rounded-full bg-red-500 border border-red-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'blue')}  className="w-7 h-7 rounded-full bg-blue-500 border border-blue-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'purple')}  className="w-7 h-7 rounded-full bg-purple-500 border border-purple-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'green')}  className="w-7 h-7 rounded-full bg-green-500 border border-green-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'orange')}  className="w-7 h-7 rounded-full bg-orange-500 border border-orange-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'yellow')}  className="w-7 h-7 rounded-full bg-yellow-500 border border-yellow-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'cyan')}  className="w-7 h-7 rounded-full bg-cyan-500 border border-cyan-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'indigo')}  className="w-7 h-7 rounded-full bg-indigo-500 border border-indigo-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
+                <motion.button  onClick={() => collectUserSearch('color', 'violet')}  className="w-7 h-7 rounded-full bg-violet-500 border border-violet-500 outline-none" whileHover={{ scale: 1.2 }} transition={{ duration: 0.4, ease: 'easeInOut' }} />
             </div>
         </section>
     </div>
