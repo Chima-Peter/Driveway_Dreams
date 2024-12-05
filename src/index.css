@@ -48,4 +48,23 @@
         background-color: lightgray;
         border-radius: 0px 10px 10px 0;
      }
+     .asideScroll::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: inherit;
+     }
+     .asideScroll::-webkit-scrollbar-thumb {
+        background-color: lightgray;
+     }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+  appearance: textfield; /* For newer browsers */
 }

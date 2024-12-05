@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext } from "react";
-import { ModalContext, ModalContextType } from "../context/modal_context";
+import { ModalContext } from "../context/modal_context";
 
 // Create a custom hook for accessing the context
 const useModalContext = () => {

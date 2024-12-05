@@ -20,7 +20,7 @@ const LoginModal = () => {
 
   return (
     <motion.div 
-        initial={{ opacity: 0 }} animate={{ opacity : 1 }} transition={{ duration: 0.3, ease: 'easeInOut' }}
+        initial={{ opacity: 0 }} animate={{ opacity : 1 }} transition={{ duration: 0.2, ease: 'easeInOut' }}
         className="w-[300px] rounded-md p-6 bg-white font-main flex flex-col gap-3 absolute top-8 left-[-120px] shadow-lg border border-gray-100">
         <ul className="flex flex-col gap-3 py-4 border-b border-b-gray-500">
             <Link to={'/favorite-cars'} className="flex gap-4 px-4 py-2 group/item: hover:bg-blue-50 hover:font-semibold items-center">
@@ -46,7 +46,7 @@ const LoginModal = () => {
                 </p>
             </button>
             <p className="text-[14px] text-blue-900 text-center tracking-wide">
-                Don't have an account? <button className="outline-none underline font-semibold text-blue-700">Register</button>
+                Don't have an account? <button onClick={openAuth}  className="outline-none underline font-semibold text-blue-700">Register</button>
             </p>
         </div>
         {
