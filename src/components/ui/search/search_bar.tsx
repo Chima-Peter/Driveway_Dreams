@@ -55,20 +55,20 @@ const SearchBar = () => {
                 }
             </ul>
         </div>
-        <AnimatePresence mode="wait">
-            <motion.div
-                key={selectedTab ? selectedTab.text : 'empty'}
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 100, opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="pb-6"
-            >
-                <SearchProvider>
+        <SearchProvider>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={selectedTab ? selectedTab.text : 'empty'}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 100, opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="pb-6"
+                >
                     {selectedTab.content}
-                </SearchProvider>
-            </motion.div>
-        </AnimatePresence>
+                </motion.div>
+            </AnimatePresence>
+        </SearchProvider>
     </aside>
   )
 }
