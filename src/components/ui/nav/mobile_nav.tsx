@@ -47,7 +47,7 @@ const MobileNav = () => {
                     <RiShoppingBasketLine className='w-4 h-4 xs:w-6 xs:h-6 group-hover/btn:text-white' />
                 </button> */}
                 <button onClick={openNavbar} type="button" className=''>
-                    <TiThMenu className='w-4 h-4 xs:w-7 xs:h-7 md:w-8 h-8 text-blue-950' />
+                    <TiThMenu className='w-4 h-4 xs:w-7 xs:h-7 md:w-8 md:h-8 text-blue-950' />
                 </button>
             </div>
         </nav>
