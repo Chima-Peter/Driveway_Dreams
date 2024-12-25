@@ -135,13 +135,13 @@ const Login = () => {
             onIconClick={togglePassword}
             errorMessage={loginError.passwordMsg}
             />
-            <Link to={'forgot-password'} className="text-sm translate-y-[-10px] self-end text-blue-800 font-bold">
+            <Link to={'forgot-password'} className="text-sm xl:text-[16px] 2xl:text-[18px] translate-y-[-10px] self-end text-blue-800 font-bold">
                 Forgot your password?
             </Link>
             <Button 
             isLoading={isLoading}
             text="Log in" />
-            <p className="text-xs font-normal text-red-600">
+            <p className="text-xs xl:text-[14px] 2xl:text-[16px] font-normal text-red-600">
                 {error}
             </p>
         </form>

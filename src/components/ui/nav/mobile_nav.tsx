@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion } from 'framer-motion'
 import { MdCancelPresentation } from "react-icons/md";
 import scrollToTop from "../../utils/scroll_to_top";
@@ -45,11 +45,11 @@ function MobileNav() {
 
 
    return (
-      <nav className={`flex flex-col text-white bg-blue-900 w-full gap-4 fixed z-10 border-b border-b-blue-900  ${isScrolled ? 'shadow-lg' : ''} ${!icon ? 'h-[100%] border-b-0' : ''}`}>
-         <div className="flex w-full justify-between items-center py-2 md:py-5 px-4 md:px-8 tablet:px-12">
-            <NavLink onClick={closeIcon} to={'/'} className={`font-semibold text-xl`}>
+      <nav className={`flex flex-col text-white bg-blue-900 w-full gap-4 fixed z-10 border-b border-b-blue-900 px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20  ${isScrolled ? 'shadow-lg' : ''} ${!icon ? 'h-[100%] border-b-0' : ''}`}>
+         <div className="flex w-full justify-between items-center py-2 md:py-5">
+            <Link onClick={closeIcon} to={'/'} className={`font-semibold text-xl`}>
                MACELO AUTO<small className='text-xs'>s</small>
-            </NavLink>
+            </Link>
                {
                   icon && <GiHamburgerMenu className="w-7 h-7 cursor-pointer" onClick={handleIcon} />
                }

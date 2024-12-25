@@ -71,9 +71,9 @@ const HomeBg = () => {
                 sizes='(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px'
                 alt="Image of car." className='w-[100%]' />
             <div ref={containerRef} className="w-[100%] bg-[rgba(0,0,0,0.5)] absolute top-0" />
-            <div className="flex flex-col gap-3 w-[80%] md:w-[600px] tablet:w-[800px] absolute left-4 md:left-8 tablet:left-10 top-10 md:top-16 tablet:top-20">
+            <div className="flex flex-col gap-3 w-[80%] md:w-[600px] min-lg:w-[800px] xl:w-[1000px] 2xl:w-[1600px] absolute left-4 sm:left-8 min-lg:left-10 xl:left-14 2xl:left-20 top-10 md:top-16 tablet:top-20">
                 <motion.h1  
-                    className='text-white text-2xl md:text-[44px] md:leading-[46px] tablet:text-[55px] tracking-normal tablet:leading-[52px] lg:leading-[60px] font-bold'
+                    className='text-white text-xl leading-tight xs:text-2xl sm:text-4xl md:text-5xl sm:leading-snug min-lg:text-6xl xl:text-7xl 2xl:text-9xl tracking-normal lg:leading-normal 2xl:leading-relaxed font-bold'
                     variants={childVariants}
                     transition={{ duration: 0.5 }}>
                     Drive Your Dream Today: Unbeatable Deals on Cars You'll Love!

@@ -429,7 +429,7 @@ const ReviewsPage = () => {
         </motion.section>
         
         <motion.section
-          className='px-4 md:px-8 tablet:px-12 flex w-[100%] flex-wrap gap-6 justify-evenly mt-32 mb-14'
+          className='px-4 md:px-8 lg:px-12 flex w-[100%] flex-wrap gap-6 justify-evenly mt-32 mb-14'
           initial="hidden"
           animate="visible"
           variants={reviewVariants}>
@@ -438,7 +438,7 @@ const ReviewsPage = () => {
               <motion.div 
                 initial={{ opacity: 0.3, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5, once: true }}
                 key={review.name} 
-                className="flex flex-col justify-between w-[100%] tablet:w-[350px] flex-shrink-0 shadow-md rounded-lg bg-white py-6 px-4" >
+                className="flex flex-col justify-between w-[100%] lg:w-[350px] flex-shrink-0 shadow-md rounded-lg bg-white py-6 px-4" >
                 <div className="flex flex-col gap-4">
                   <h3 className="text-lg font-extrabold text-blue-950">
                     {review.name}
@@ -470,9 +470,9 @@ const ReviewsPage = () => {
           }
         </motion.section>
 
-        <section className='px-4 md:px-8 tablet:px-12 mb-24 w-[100%]  flex justify-center items-center gap-12 flex-col'>
+        <section className='px-4 md:px-8 lg:px-12 mb-24 w-[100%]  flex justify-center items-center gap-12 flex-col'>
           <motion.h4 
-            className='text-3xl uppercase w-[100%] tablet:w-[70%] text-center leading-relaxed text-blue-950 font-extrabold'
+            className='text-3xl uppercase w-[100%] lg:w-[70%] text-center leading-relaxed text-blue-950 font-extrabold'
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 1, once: true }} transition={{ duration: 1 }}>
             Get a car from us and become another happy customer of ours.
           </motion.h4>

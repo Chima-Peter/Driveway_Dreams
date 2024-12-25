@@ -97,17 +97,17 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
 
     return (
         <section 
-            className="flex flex-col gap-8 pl-4 md:pl-8 tablet:pl-12 w-[100%] mt-28 overflow-hidden" >
-            <div className="flex justify-between" ref={ref}>
+            className="flex flex-col gap-8 px-4 sm:px-8 min-lg:pl-10 xl:pl-14 2xl:pl-20  w-[100%] mt-28 overflow-hidden" >
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0" ref={ref}>
                 <motion.div 
-                    className='flex gap-12 items-start'
+                    className='flex w-[100%] min-lg:w-fit min-lg:gap-12 items-start gap-4 '
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
-                    <h2 className="text-blue-600 font-extrabold text-4xl">
+                    <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         01.
                     </h2> 
-                    <div className="flex flex-col gap-4 tablet:w-[550px]">
+                    <div className="flex flex-col gap-4 w-[80%] min-lg:w-[550px]">
                         <h2 className="text-blue-950 font-extrabold text-3xl">
                             1 000 000 cars per click
                         </h2>
@@ -119,7 +119,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop key={item.header} paragraph={item.paragraph} header={item.header} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] h-[180px] w-[100%] border border-[#95E7CE] pr-4 mt-8'>
+                        <div className='flex gap-4 bg-[#C7FFE9] h-fit min-lg:h-[180px] w-[100%] border border-[#95E7CE] pr-4 mt-8'>
                             <div className='bg-[#95E7CE] w-[500px] pr-2 flex items-center'>
                                 <img src={sub_htw1} alt="We are your trusted advisor" />
                             </div>
@@ -138,7 +138,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='relative w-[420px] h-[500px]'
+                    className='relative w-[100%] min-lg:w-[420px] h-[500px] self-end'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -150,16 +150,16 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                 </motion.div>
             </div>
 
-            <div className="flex justify-between tablet:mt-20">
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-20">
                 <motion.div 
-                className='flex gap-12 items-start'
+                className='flex min-lg:gap-12 items-start gap-4 '
                 initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ amount: 0.2, once: true }}
                 transition={{ ease: 'easeInOut' }}>
-                    <h2 className="text-blue-600 font-extrabold text-4xl">
+                    <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         02.
                     </h2>
-                    <div className="flex flex-col gap-4 tablet:w-[550px]">
+                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
                         <h2 className="text-blue-950 font-extrabold text-3xl">
                             We arrange a vehicle inspection
                         </h2>
@@ -174,7 +174,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='w-[370px] relative h-[320px]'
+                    className='self-end w-[100%] sm:w-[370px] relative h-[320px]'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -195,16 +195,16 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                 </motion.div>
             </div>
 
-            <div className="flex justify-between tablet:mt-32">
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-32 mt-36">
                 <motion.div 
-                    className='flex gap-12 items-start'
+                    className='flex min-lg:gap-12 items-start gap-4 '
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
-                    <h2 className="text-blue-600 font-extrabold text-4xl">
+                    <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         03.
                     </h2>
-                    <div className="flex flex-col gap-4 tablet:w-[550px]">
+                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
                         <h2 className="text-blue-950 font-extrabold text-3xl">
                             Seamless and Fast Payments
                         </h2>
@@ -216,7 +216,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop paragraph={item.paragraph} header={item.header} key={item.paragraph} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-[150px]'>
+                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit min-lg:h-[150px]'>
                             <div className='bg-[#95E7CE] pr-2 flex items-center'>
                                 <img src={sub_htw2} alt="We are your trusted advisor" />
                             </div>
@@ -236,7 +236,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='relative w-[420px] h-[550px]'
+                    className='relative w-[100%] min-lg:w-[420px] h-[550px]'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -261,16 +261,16 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                 </motion.div>
             </div>
 
-            <div className="flex justify-between tablet:mt-20">
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-20">
                 <motion.div 
-                    className='flex gap-12 items-start'
+                    className='flex min-lg:gap-12 items-start gap-4 '
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
-                    <h2 className="text-blue-600 font-extrabold text-4xl">
+                    <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         04.
                     </h2>
-                    <div className="flex flex-col gap-4 tablet:w-[550px]">
+                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
                         <h2 className="text-blue-950 font-extrabold text-3xl">
                             Risk-free purchase
                         </h2>
@@ -285,7 +285,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='w-[400px] h-[330px] bg-white relative'
+                    className='w-[100%] min-lg:w-[400px] h-[330px] bg-white relative'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -320,16 +320,16 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                 </motion.div>
             </div>
 
-            <div className="flex justify-between tablet:mt-20">
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-20 mt-32">
                 <motion.div 
-                    className='flex gap-12 items-start'
+                    className='flex min-lg:gap-12 items-start gap-4 '
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
-                    <h2 className="text-blue-600 font-extrabold text-4xl">
+                    <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         05.
                     </h2>
-                    <div className="flex flex-col gap-4 tablet:w-[550px]">
+                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
                         <h2 className="text-blue-950 font-extrabold text-3xl">
                             We’ll deliver it to your house, or a pick-up point
                         </h2>
@@ -338,7 +338,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop paragraph={item.paragraph} header={item.header} key={item.paragraph} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-[150px]'>
+                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit min-lg:h-[150px]'>
                             <div className='bg-[#95E7CE] pr-2 flex items-center'>
                                 <img src={sub_htw3} alt="Unique experience guaranteed" />
                             </div>
@@ -354,7 +354,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='relative w-[420px] h-[330px] flex flex-col gap-4'
+                    className='relative w-[100%] sm:w-[420px] h-[330px] flex flex-col gap-4 self-end'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>

@@ -145,62 +145,62 @@ const HomePage = () => {
 
       <CarSlides />
 
-      <section className="bg-[#F5F7FB] w-[100%] pt-[150px] pb-[200px] clip-htw font-main px-4 md:px-8 tablet:px-12 flex flex-col items-center gap-8">
-        <h2 className="text-4xl font-extrabold tracking-tight text-blue-950">
+      <section className="bg-[#F5F7FB] w-[100%] pt-[150px] pb-[200px] clip-htw font-main px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20 flex flex-col items-center gap-8">
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold tracking-tight text-blue-950">
           How does it work?
         </h2>
-        <div className="flex justify-between w-[100%]">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-2 md:justify-between w-[100%]">
           {
             howItWorks.map((item, index) => (
-              <div key={index} className="flex flex-col gap-4 w-[350px]" >
-                <img src={item.image} alt={item.header} className="w-[100%]" />
-                <p className="text-blue-600 font-extrabold text-[16px]">
+              <div key={index} className="flex flex-col gap-4 w-[100%] lg:w-[350px] xl:w-[400px] 2xl:w-[550px]" >
+                <img src={item.image} alt={item.header} className="w-[45%] md:w-[100%]" />
+                <p className="text-blue-600 font-extrabold text-[16px] xl:text-[20px] 2xl:text-[24px]">
                   0{index + 1}.
                 </p>
-                <h3 className="text-xl font-extrabold text-blue-950">
+                <h3 className="text-xl min-lg:text-2xl 2xl:text-4xl font-extrabold text-blue-950">
                   {item.header}
                 </h3>
-                <p className="text-blue-950 text-sm">
+                <p className="text-blue-950 text-[16px] md:text-sm min-lg:text-[16px] xl:text-lg 2xl:text-[24px]">
                   {item.paragraph}
                 </p>
               </div>
             ))
           }
         </div>
-        <button className="w-fit outline-none rounded-md text-white font-main font-extrabold text-[15px] bg-gradient-to-r from-blue-600 to-blue-950 py-3 px-6 hover:from-blue-600 hover:to-blue-600 mt-6">
+        <button className="w-fit outline-none rounded-md text-white font-main font-extrabold text-[16px] xl:text-[20px] 2xl:text-[24px] bg-gradient-to-r from-blue-600 to-blue-950 py-3 px-6 hover:from-blue-600 hover:to-blue-600 mt-6">
           Want to know more?
         </button>
       </section>
 
-      <section className="w-[100%] flex justify-between items-center gap-8">
-        <div className="flex flex-col gap-4 w-[40%] pl-4 md:pl-8 tablet:pl-24">
-          <h3 className="text-blue-950 text-2xl font-extrabold">
+      <section className="w-[100%] flex flex-col md:flex-row justify-between items-center md:gap-8">
+        <div className="flex flex-col gap-4 w-[100%] md:w-[40%] pl-4 sm:pl-8 min-lg:pl-10 xl:pl-14 2xl:pl-20 ">
+          <h3 className="text-blue-950 text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold">
             Unlock Your Dream Ride at an Affordable Price! 🚗💨
           </h3>
-          <p className="text-blue-950 leading-relaxed text-[15px] font-semibold">
+          <p className="text-blue-950 leading-relaxed text-[16px] md:text-[18px] xl:text-[20px] 2xl:text-[24px] font-semibold">
             New cars are expensive, but that doesn't mean you have to miss out on owning a high-quality vehicle. With used cars, you can drive away with your dream car without the eye-watering price tag. Why pay full price for a new car when you can choose from a wide selection of well-maintained, feature-packed pre-owned vehicles?
           </p>
         </div>
-        <div className="w-[55%] flex flex-col gap-0 justify-center relative h-[450px]" >
+        <div className="w-[100%] md:w-[55%] flex flex-col gap-0 justify-center relative h-[450px]" >
           <div className="clip-used bg-[#F5F7FB] h-[80%] w-[100%]" />
           <div className="clip-under bg-[rgb(215,225,239)] h-[25%] w-[100%]" />
           <motion.div className="flex flex-col gap-6 rounded-xl py-8 px-12 opacity-50 hover:opacity-100 bg-white shadow-2xl w-[90%] absolute" whileInView={{ opacity: 100 }} viewport={{ amount: 1, once: false }} transition={{ duration: 0.5, ease: 'anticipate' }}>
-            <h3 className="text-blue-900 font-extrabold text-2xl tracking-tight">
+            <h3 className="text-blue-900 font-extrabold text-2xl xl:text-3xl tracking-tight">
               Buy a car from your sofa
             </h3>
-            <Link to="/cars" className="w-[100%] bg-gradient-to-r tracking-wider from-blue-600 to-blue-950 shadow-md hover:shadow-lg hover:from-blue-900 hover:to-blue-900 text-white font-extrabold text-[12px] py-3 text-center px-6 rounded-lg">
+            <Link to="/cars" className="w-[100%] bg-gradient-to-r tracking-wider from-blue-600 to-blue-950 shadow-md hover:shadow-lg hover:from-blue-900 hover:to-blue-900 text-white font-extrabold text-[14px] md:text-[16px] xl:text-[18px] py-3 text-center px-6 rounded-lg">
               GET ONE TODAY!
             </Link>
           </motion.div>
         </div>
       </section>
 
-      <section className="w-[100%] flex justify-between items-center gap-4 h-fit">
+      <section className="w-[100%] flex flex-col min-lg:flex-row justify-between items-center gap-8 min-lg:gap-4 h-fit  px-4 sm:px-8 md:px-0 min-lg:px-10 xl:px-14 2xl:px-20 ">
         <div className='relative flex w-[100%]'>
-          <div className="clip-installment w-[100%] h-[650px] bg-[#EDF1F8]" />
-          <div className="rounded-2xl border flex flex-col gap-0 items-center border-gray-200 shadow-lg saturate-100 px-12 py-8 w-[80%] absolute top-16 left-24 bg-white">
+          <div className="clip-installment w-[100%] h-[450px] lg:h-[650px] bg-[#EDF1F8]" />
+          <div className="rounded-2xl border flex flex-col gap-0 items-center border-gray-200 shadow-lg saturate-100 px-12 py-8 w-[100%] lg:w-[80%] absolute lg:top-16 lg:left-24 bg-white">
             <div className="h-[35px] -top-9 opacity-30 absolute w-[80%] rounded-t-2xl bg-[rgba(72,88,133,0.16)]" />
-            <div className="text-blue-900 flex flex-col gap-12 w-[100%] bg-white opacity-10">
+            <div className="text-blue-900 hidden lg:flex flex-col gap-12 w-[100%] bg-white opacity-10">
               <ul className="flex flex-col gap-8">
                 <li className="flex flex-col gap-4">
                   <div className="flex justify-between">
@@ -275,16 +275,16 @@ const HomePage = () => {
               </p>
             </div>
             <motion.div 
-              className="flex flex-col opacity-30 w-[100%] gap-6 items-center justify-center absolute top-[30%] "
+              className="flex flex-col opacity-30 w-[100%] bg-white lg:bg-inherit py-2 lg:py-0 rounded-xl lg:rounded-none gap-6 items-center justify-center lg:absolute lg:top-[30%]"
               initial={{ y: 30 }} whileInView={{ y: 0, opacity: 100 }} viewport={{ amount: 0.5, once: false }} transition={{ duration: 1, ease: 'anticipate' }}
               >
               <div className="border-4 animate-bounce border-[#3E47DD] p-4 rounded-full">
                 <FaHandHoldingDollar className="w-14 h-14 text-[#3E47DD]" />
               </div>
-              <h4 className="text-[18px] font-extrabold tracking-tight text-[#3E47DD]">
+              <h4 className="text-[18px] md:text-[20px] xl:text-[22px] 2xl:text-[24px] font-extrabold tracking-tight text-[#3E47DD]">
                 We are always ready to help you get that dream car
               </h4>
-              <p className="text-[16px] font-medium text-blue-900">
+              <p className="text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] font-medium text-blue-900">
                 Call us, and let's get started today
               </p>
               <div className="flex gap-2 items-center">
@@ -294,25 +294,25 @@ const HomePage = () => {
             </motion.div>
           </div>
         </div>
-        <div className='flex flex-col gap-6 items-center w-[50%] pr-4 md:pr-8 tablet:pr-16'>
-          <h4 className='text-2xl text-blue-900 font-extrabold'>
+        <div className='flex flex-col gap-6 items-center w-[100%] min-lg:w-[50%] min-lg:pr-10 xl:pr-14 2xl:pr-20 px-4 sm:px-8 '>
+          <h4 className='text-[22px] md:text-[24px] xl:text-[26px] 2xl:text-[30px] text-blue-900 font-extrabold'>
             Drive Now, Pay Later with Our Flexible Installment Plans!
           </h4>
           <div className='flex flex-col gap-4'>
-            <p className='text-blue-900 font-semibold tracking-wide leading-6 text-[14px]'>
+            <p className='text-blue-900 font-semibold tracking-wide leading-normal text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]'>
               Owning your dream car has never been easier! With our installment payment options, you can break down the cost into manageable monthly payments that fit your budget. No need to pay the full price upfront—choose the plan that works for you and enjoy the car you’ve always wanted without the financial strain.
             </p>
             <ul className='flex flex-col gap-2'>
-              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-sm'>
+              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] '>
               ✨ Affordable Payment Options
               </li>
-              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-sm'>
+              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] '>
               ✨ Zero Hidden Fees
               </li>
-              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-sm'>
+              <li className='text-blue-900 font-semibold tracking-wide leading-relaxed text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] '>
               ✨ Quick and Easy Financing
               </li>
-              <p className='text-blue-900 font-semibold tracking-wide leading-6 text-[14px]'>
+              <p className='text-blue-900 font-semibold tracking-wide leading-6 text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] '>
                 Start your journey today—apply now and drive home your car with confidence!
               </p>
             </ul>
@@ -320,11 +320,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-4 px-4 md:px-8 tablet:px-12">
-        <h4 className="text-4xl text-blue-950 font-extrabold mb-2">
+      <section className="flex flex-col items-center gap-4 px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20 ">
+        <h4 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl text-blue-950 font-extrabold mb-2 text-center">
           Comprehensive services just a few clicks away
         </h4>
-        <p className="text-[16px] font-light text-blue-950">
+        <p className="text-[20px] md:text-[22px] xl:text-[24px] 2xl:text-[26px] font-light text-blue-950">
           One-stop solution for all your needs, from the comfort of your home.
         </p>
         <motion.div 
@@ -335,8 +335,8 @@ const HomePage = () => {
             servicesList.map((service, index) => (
               <motion.div 
               key={index} 
-              className="flex flex-col gap-8 px-2 py-6 tablet:w-1/3 lg:w-[32%] items-center hover:shadow-xl shadow-sm border border-gray-200 rounded-lg h-[400px] opacity-100"
-              initial={{ opacity: 0.5 }} whileInView={{ opacity: 1 }} viewport={{ amount: 0.5, once: false }} transition={{ duration: 0.3, ease: 'easeInOut' }}>
+              className="flex flex-col gap-8 px-4 py-6 w-[100%] sm:w-[45%] lg:w-[32%] items-center hover:shadow-xl shadow-sm border border-gray-200 rounded-lg h-[400px] opacity-100"
+              initial={{ opacity: 0.2, y: 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.2, once: false }} transition={{ duration: 0.3, ease: 'easeInOut' }}>
                 {service.icon}
                 <h4 className="text-[26px] font-extrabold text-blue-950 tracking-wide">
                   {service.header}
@@ -344,9 +344,9 @@ const HomePage = () => {
                 <ul className="flex flex-col gap-2">
                   {
                     service.list.map((item, index) => (
-                      <li key={index} className="text-[16px] items-center tracking-wide font-medium leading-relaxed text-blue-950 flex gap-2">
+                      <li key={index} className="text-[16px] min-lg:items-center items-start tracking-wide font-medium leading-relaxed text-blue-950 flex gap-2">
                         <IoIosCheckmarkCircle className="w-5 h-5 text-green-600" />
-                        <p className="text-[16px]">
+                        <p className="text-[16px] min-lg:text-[18px] xl:text-[20px] 2xl:text-[22px]">
                           {item}
                         </p>
                       </li>
@@ -360,29 +360,29 @@ const HomePage = () => {
       </section>
 
       <motion.section 
-        className="bg-[#EDF1F8] flex py-24 flex-col gap-6 w-[100%] clip-reviews mt-6 px-4 md:px-8 tablet:px-12 overflow-hidden"
+        className="bg-[#EDF1F8] flex py-24 flex-col gap-8 w-[100%] clip-reviews mt-6  px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20  overflow-hidden"
         transition={{
           staggerChildren: 0.2,
         }}>
         <motion.h5 
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 1, once: false }} transition={{ duration: 0.5, ease: 'linear' }}
-          className="text-4xl font-extrabold mt-24 text-blue-950">
+          className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl  font-extrabold mt-24 text-blue-950">
           What do our customers think?
         </motion.h5>
         <motion.div 
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 1, once: false }} transition={{ duration: 0.5, ease: 'linear' }}
           className="flex gap-3 mb-8 items-center">
-          <p className="text-4xl font-extrabold text-blue-950">
+          <p className="text-3xl md:text-4xl xl:text-5xl font-extrabold text-blue-950">
             4.8
           </p>
           <div className="flex gap-1">
-            <IoStar className="w-5 h-5 text-yellow-400" />
-            <IoStar className="w-5 h-5 text-yellow-400" />
-            <IoStar className="w-5 h-5 text-yellow-400" />
-            <IoStar className="w-5 h-5 text-yellow-400" />
-            <IoStarHalf  className="w-5 h-5 text-yellow-400" />
+            <IoStar className="w-5 h-5 text-yellow-400 xl:w-8 xl:h-8" />
+            <IoStar className="w-5 h-5 text-yellow-400 xl:w-8 xl:h-8" />
+            <IoStar className="w-5 h-5 text-yellow-400 xl:w-8 xl:h-8" />
+            <IoStar className="w-5 h-5 text-yellow-400 xl:w-8 xl:h-8" />
+            <IoStarHalf  className="w-5 h-5 text-yellow-400 xl:w-8 xl:h-8" />
           </div>
-          <p className="text-[14px] font-extrabold text-gray-500 self-center h-4">
+          <p className="text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] font-extrabold text-gray-500 self-center h-4">
             1803 reviews
           </p>
         </motion.div>
@@ -424,54 +424,55 @@ const HomePage = () => {
             ))
           }
         </motion.div>
-        <h5 className="uppercase font-extrabold opacity-70 text-sm my-16 text-blue-950 self-center">
+        <h5 className="uppercase font-extrabold opacity-70 text-[20px] sm:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[28px]  my-16 text-blue-950 self-center">
           They also trust us in the media...
         </h5>
-        <div className="w-[100%] flex items-center justify-center flex-col gap-0">
-          <div className="flex justify-between w-[70%] rounded-t-xl shadow-2xl bg-white">
-            <div className="flex flex-col gap-10 px-8 py-14">
-              <h5 className="uppercase text-blue-950 leading-16 tracking-wide text-3xl font-extrabold">
+
+        <section className="w-[100%] flex items-center justify-center flex-col gap-0">
+          <div className="flex flex-col-reverse md:flex-row justify-between w-[100%] min-lg:w-[70%] rounded-t-xl shadow-2xl bg-white">
+            <div className="flex flex-col gap-10 px-4 py-7 md:px-8 md:py-14">
+              <h5 className="uppercase text-blue-950 leading-16 tracking-wide text-3xl xl:text-4xl font-extrabold">
                 Your next car is waiting here...
               </h5>
-              <Link to={'/cars'} className="text-white outline-none bg-gradient-to-r from-blue-600 to-blue-950 font-bold w-fit py-3 px-6 rounded-md shadow-2xl hover:to-blue-600 animate-bounce hover:animate-none hover:shadow-blue-600">
+              <Link to={'/cars'} className="text-white text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]  outline-none bg-gradient-to-r from-blue-600 to-blue-950 font-bold w-fit py-3 px-6 rounded-md shadow-2xl hover:to-blue-600 animate-bounce hover:animate-none hover:shadow-blue-600">
                 GET STARTED
               </Link>
             </div>
-            <img src={contactImage} alt="Contact us to get a car today" className="w-[250px]" />
+            <img src={contactImage} alt="Contact us to get a car today" className="hidden md:block w-[250px]" />
           </div>
-          <div className="border-t border-t-gray-300 flex justify-center gap-16 bg-[#F5F7FB] w-[70%] px-4 py-10 shadow-2xl rounded-b-xl">
+          <div className="border-t border-t-gray-300 flex flex-col md:flex-row md:justify-between justify-center md:gap-0 min-lg:justify-center gap-6 min-lg:gap-16 bg-[#F5F7FB] w-[100%] min-lg:w-[70%] px-4 py-6 min-lg:py-10 shadow-2xl rounded-b-xl">
             <div className="flex gap-4 items-center">
               <div className="p-5 bg-white rounded-full">
-                <FaPhoneVolume className="w-6 h-6 text-blue-600" />
+                <FaPhoneVolume className="w-6 h-6 xl:w-8 xl:h-8 text-blue-600" />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-light text-blue-950">
+                <p className="text-sm lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-light text-blue-950">
                   Call us
                 </p>
-                <a href="tel:+2348075310346" className="text-sm font-extrabold text-blue-950">
+                <a href="tel:+2348075310346" className="text-sm lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-extrabold text-blue-950">
                   +234-807-531-0346
                 </a>
-                <p className="text-sm font-light text-blue-950">
+                <p className="text-sm lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-light text-blue-950">
                   Mo–Su 8 am-8 pm
                 </p>
               </div>
             </div>
             <div className="flex gap-4 items-center">
               <div className="p-5 bg-white rounded-full">
-                <IoMdMail className="w-6 h-6 text-blue-600" />
+                <IoMdMail className="w-6 h-6 xl:w-8 xl:h-8 text-blue-600" />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-light text-blue-950">
+                <p className="text-sm lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-light text-blue-950">
                   Email
                 </p>
-               <a href="mailto:chimaojimma@gmail.com" className="text-sm font-extrabold text-blue-950 underline">
+               <a href="mailto:chimaojimma@gmail.com" className="text-sm lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-extrabold text-blue-950 underline">
                 chimaojimma@gmail.com
                </a>
               </div>
             </div>
           </div>
-        </div>
-        <h5 className="font-extrabold text-blue-950 text-2xl my-10 text-center uppercase self-center leading-relaxed w-[60%]">
+        </section>
+        <h5 className="font-extrabold text-blue-950  text-[20px] sm:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[28px]  my-10 text-center uppercase self-center leading-relaxed w-[90%] md:w-[60%]">
           You’re not risking anything when you buy a vehicle on Driveway Dreams
         </h5>
         <HomeBox isRelative={false} />

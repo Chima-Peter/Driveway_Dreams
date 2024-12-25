@@ -7,10 +7,14 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'xs': '400px',
-      'md': '680px',
-      'tablet': '850px',
-      'lg': '1024px',
+      'xs': '360px',
+      'sm': '680px',
+      'md': '768px',
+      'min-lg': '1024px',
+      'lg': '1099px',
+      'xl': '1440px',
+      '2xl': '2560px',
+      '4xl': '3840px'
     },
     extend: {
       fontFamily: {

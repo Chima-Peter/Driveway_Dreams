@@ -29,7 +29,7 @@ const SearchBar = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0])
 
   return (
-    <aside className="tablet:w-[320px] flex flex-col font-main gap-6 bg-white shadow-xl border border-gray-200 h-[100vh] overflow-y-auto pt-[100px] sticky top-0 z-10 overflow-x-hidden asideScroll">
+    <aside className="md:w-[320px] flex flex-col font-main gap-6 bg-white shadow-xl border border-gray-200 h-[100vh] overflow-y-auto pt-[100px] sticky top-0 z-10 overflow-x-hidden asideScroll">
         <div className="flex flex-col gap-2 border-b border-b-200 shadow-xl w-[100%] sticky -top-6 pt-2 bg-white z-20">
             <h1 className="text-blue-950 font-extrabold text-lg uppercase mt-2 px-6">
                 Filter

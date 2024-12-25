@@ -22,6 +22,13 @@ const CarSlides = () => {
     { car: "Luxury", image: luxury, link: "luxury" },
     { car: "New", image: nearly_new, link: "nearly-new" },
     { car: "Sport", image: sport, link: "sport" },
+    { car: "SUV", image: suv, link: "suv" },
+    { car: "Family Car", image: family, link: "family-car" },
+    { car: "Estate", image: estate, link: "estate" },
+    { car: "Luxury", image: luxury, link: "luxury" },
+    { car: "New", image: nearly_new, link: "nearly-new" },
+    { car: "Sport", image: sport, link: "sport" },
+
   ]);
 
   // State to control the horizontal position of the slider
@@ -52,7 +59,7 @@ const CarSlides = () => {
 
   return (
     <motion.section 
-      className="flex flex-col gap-8 mt-[130px] px-4 md:px-8 tablet:px-12 w-[100%] overflow-hidden"
+      className="flex flex-col gap-8 mt-[50px] lg:mt-[130px] px-4 md:px-8 lg:px-12 w-[100%] overflow-hidden"
       initial={{ x: 100 }} whileInView={{ x: 0 }} viewport={{ amount: 0.3, once: true }} transition={{ duration: 0.5, ease: 'easeInOut' }}>
       {/* Section Header */}
       <h2 className="text-3xl tracking-tight font-extrabold text-blue-950">
@@ -70,11 +77,11 @@ const CarSlides = () => {
           <Link
             to={`/${car.link}`} // Navigate to the car's link
             key={index} // Unique key for each car
-            className="w-[250px] h-[150px] group/link rounded-xl border border-[#D7E1EF] shadow-md bg-white flex-shrink-0 flex flex-col items-center justify-center text-blue-950 hover:border-blue-600 hover:border-2 hover:text-blue-600"
+            className="w-[250px] h-[150px] xl:w-[300px] xl:h-[180px] group/link rounded-xl border border-[#D7E1EF] shadow-md bg-white flex-shrink-0 flex flex-col xl:gap-2 items-center justify-center text-blue-950 hover:border-blue-600 hover:border-2 hover:text-blue-600"
           >
             {/* Car Title and Hover Icon */}
             <div className="flex items-center">
-              <h2 className="text-lg font-extrabold">{car.car}</h2>
+              <h2 className="text-lg xl:text-xl 2xl:text-2xl font-extrabold">{car.car}</h2>
               {/* Icon animates when hovered */}
               <motion.div
                 className="hidden group-hover/link:flex"
@@ -102,14 +109,14 @@ const CarSlides = () => {
           className={`outline-none p-3 rounded-md border ${shift === 0 ? 'border-gray-400  text-gray-400 cursor-default' : 'border-blue-600  text-blue-600'}`}
           onClick={shiftRight}
         >
-          <GrPrevious className="w-5 h-5" />
+          <GrPrevious className="w-5 h-5 xl:w-8 xl:h-8" />
         </button>
         {/* Shift Left Button */}
         <button
           className="outline-none p-3 rounded-md border border-blue-600"
           onClick={shiftLeft}
         >
-          <GrNext className="w-5 h-5 text-blue-600" />
+          <GrNext className="w-5 h-5 xl:w-8 xl:h-8 text-blue-600" />
         </button>
       </div>
     </motion.section>

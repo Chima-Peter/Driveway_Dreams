@@ -172,7 +172,7 @@ const SignUp = () => {
             <Button 
             isLoading={isLoading}
             text="Sign up" />
-            <p className="text-xs font-normal text-red-600">
+            <p className="text-xs xl:text-[14px] 2xl:text-[16px] font-normal text-red-600">
                 {error}
             </p>
         </form>
