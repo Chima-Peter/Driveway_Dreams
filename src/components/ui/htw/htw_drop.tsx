@@ -26,7 +26,7 @@ const HtwDrop = ({ paragraph, header }: HtwTypes) => {
         onClick={toggleDrop}
         className="w-[100%] flex justify-between px-1 cursor-pointer items-center"
       >
-        <p className={`hover:text-blue-600 font-extrabold text-[16px] text-left w-[80%] ${drop ? 'text-blue-600' : 'text-blue-950'}`}>
+        <p className={`hover:text-blue-600 font-medium text-[16px] xl:text-[20px] 2xl:text-[20px] text-left w-[80%] ${drop ? 'text-blue-600' : 'text-blue-950'}`}>
           {header}
         </p>
         <motion.div
@@ -41,7 +41,7 @@ const HtwDrop = ({ paragraph, header }: HtwTypes) => {
       <AnimatePresence>
         { drop && (
           <motion.p
-            className="text-blue-950 font-semibold text-sm px-1 leading-6"
+            className="text-blue-950 font-normal text-[16px] xl:text-[20px] 2xl:text-[22px] px-1 leading-normal"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

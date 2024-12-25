@@ -97,7 +97,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
 
     return (
         <section 
-            className="flex flex-col gap-8 px-4 sm:px-8 min-lg:pl-10 xl:pl-14 2xl:pl-20  w-[100%] mt-28 overflow-hidden" >
+            className="flex flex-col gap-8 px-4 sm:px-8 min-lg:pr-0 min-lg:pl-10 xl:pl-14 2xl:pl-20  w-[100%] mt-28 overflow-hidden" >
             <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0" ref={ref}>
                 <motion.div 
                     className='flex w-[100%] min-lg:w-fit min-lg:gap-12 items-start gap-4 '
@@ -107,11 +107,11 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         01.
                     </h2> 
-                    <div className="flex flex-col gap-4 w-[80%] min-lg:w-[550px]">
-                        <h2 className="text-blue-950 font-extrabold text-3xl">
+                    <div className="flex flex-col gap-4 w-[90%] min-lg:w-[400px] lg:w-[550px] xl:w-[580px] min-[2000px]:w-[1000px]">
+                        <h2 className="text-blue-950 font-extrabold text-3xl xl:text-4xl 2xl:text-5xl">
                             1 000 000 cars per click
                         </h2>
-                        <p className="text-blue-950 font-bold text-[18px] mb-6">
+                        <p className="text-blue-950 font-normal text-[18px] xl:text-[20px] 2xl:text-[24px] mb-6">
                             We process over 7 million ads every day, but we recommend only 10% of them for purchase. With the remaining cars, something often "doesn't fit" us.
                         </p>
                         {
@@ -119,18 +119,16 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop key={item.header} paragraph={item.paragraph} header={item.header} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] h-fit min-lg:h-[180px] w-[100%] border border-[#95E7CE] pr-4 mt-8'>
+                        <div className='flex gap-4 bg-[#C7FFE9] h-fit w-[100%] border border-[#95E7CE] pr-4 mt-8'>
                             <div className='bg-[#95E7CE] w-[500px] pr-2 flex items-center'>
                                 <img src={sub_htw1} alt="We are your trusted advisor" />
                             </div>
                             <div className='flex flex-col gap-1 py-4'>
-                                <h2 className='text-blue-950 text-2xl font-extrabold'>
+                                <h2 className='text-blue-950 text-2xl xl:text-3xl 2xl:text-4xl font-extrabold'>
                                     We are your trusted advisor 
                                 </h2>
-                                <p className='text-blue-950 text-sm leading-6'>
-                                    <strong>
-                                        We offer vehicles from trustworthy sellers, we are not their owners. This is why we are always pleased to advise you objectively. &nbsp;
-                                    </strong>
+                                <p className='text-blue-950 text-[16px] xl:text-[18px] 2xl:text-[20px] font-normal leading-6'>
+                                        We offer vehicles from trustworthy sellers, we are not their owners. This is why we are always pleased to advise you objectively.
                                     We don’t need to get rid of any unsellable vehicles which have been standing in the car lot for half a year.
                                 </p>
                             </div>
@@ -138,14 +136,14 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='relative w-[100%] min-lg:w-[420px] h-[500px] self-end'
+                    className='relative w-[100%] min-lg:w-[420px] h-[500px] xl:w-[580px] xl:h-[600px] self-end'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
                     <div className="w-[100%] h-[63%] bg-[#EDF1F8] clip-htw_comp" />
                     <div className="w-[100%] h-[150px] bg-[#D7E1EF] clip-under" />
                     <div className="w-[100%] absolute top-0 left-0">
-                        <img src={htw1} alt="1,000,000 cars per click." className='w-[250px]' />
+                        <img src={htw1} alt="1,000,000 cars per click." className='w-[250px] xl:w-[300px]' />
                     </div>
                 </motion.div>
             </div>
@@ -159,11 +157,11 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         02.
                     </h2>
-                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
-                        <h2 className="text-blue-950 font-extrabold text-3xl">
+                    <div className="flex flex-col gap-4 w-[190%] min-lg:w-[400px] lg:w-[550px] xl:w-[580px] min-[2000px]:w-[1000px]">
+                        <h2 className="text-blue-950 font-extrabold text-3xl xl:text-4xl 2xl:text-5xl">
                             We arrange a vehicle inspection
                         </h2>
-                        <p className="text-blue-950 font-bold text-[18px] mb-6">
+                        <p className="text-blue-950 font-normal text-[18px] xl:text-[20px] 2xl:text-[24px] mb-6">
                             We do not own cars in our offer, so we must first thoroughly check them. We know specific models and motorizations perfectly and we know what to focus on for each of them.
                         </p>
                         {
@@ -174,20 +172,20 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='self-end w-[100%] sm:w-[370px] relative h-[320px]'
+                    className='self-end w-[100%] sm:w-[370px] relative h-[320px] '
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
-                    <img src={htw2} alt="We arrange a vehicle inspection." className='w-[330px]' />
-                    <div className="flex gap-4 pl-4 pr-2 py-6 border border-gray-300 shadow-xl rounded-sm absolute w-[270px] -bottom-24 bg-white">
+                    <img src={htw2} alt="We arrange a vehicle inspection." className='w-[330px] xl:w-[400px]' />
+                    <div className="flex gap-4 pl-4 pr-2 py-6 border border-gray-300 shadow-xl rounded-sm absolute w-[270px] xl:w-[330px] -bottom-24 bg-white">
                         <div>
                             <CiClock2 className="w-14 h-14 text-blue-600" />
                         </div>
                         <div className="flex flex-col gap-3">
-                            <h2 className="text-[16px] font-extrabold text-blue-950">
+                            <h2 className="text-[16px] font-extrabold text-blue-950 xl:text-[20px]">
                                 Result of inspection within 2 working days
                             </h2>
-                            <p className="text-[15px] font-medium text-blue-950 leading-6">
+                            <p className="text-[15px] font-medium text-blue-950 leading-6 xl:text-[20px]">
                                 We are able to supply the result of the inspection within 2 working days of it being ordered in 93% of the cases.
                             </p>
                         </div>
@@ -195,20 +193,20 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                 </motion.div>
             </div>
 
-            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-32 mt-36">
+            <div className="flex justify-between flex-col min-lg:flex-row gap-6 min-lg:gap-0 lg:mt-32 xl:mt-44 mt-36">
                 <motion.div 
-                    className='flex min-lg:gap-12 items-start gap-4 '
+                    className='flex min-lg:gap-12 items-start gap-4'
                     initial={{ opacity: 0.5, x: -200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
                     <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         03.
                     </h2>
-                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
-                        <h2 className="text-blue-950 font-extrabold text-3xl">
+                    <div className="flex flex-col gap-4 w-[190%] min-lg:w-[400px] lg:w-[550px] xl:w-[580px] min-[2000px]:w-[1000px]">
+                        <h2 className="text-blue-950 font-extrabold text-3xl xl:text-4xl 2xl:text-5xl">
                             Seamless and Fast Payments
                         </h2>
-                        <p className="text-blue-950 font-bold text-[18px] mb-6">
+                        <p className="text-blue-950 font-normal text-[18px] xl:text-[20px] 2xl:text-[24px] mb-6">
                             You can either pay for the car all at once or Installmentally. We have above-standard conditions agreed with many verified banks and financial service providers.
                         </p>
                         {
@@ -216,15 +214,15 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop paragraph={item.paragraph} header={item.header} key={item.paragraph} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit min-lg:h-[150px]'>
+                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit'>
                             <div className='bg-[#95E7CE] pr-2 flex items-center'>
                                 <img src={sub_htw2} alt="We are your trusted advisor" />
                             </div>
                             <div className='flex flex-col gap-1 py-4'>
-                                <h2 className='text-blue-950 text-2xl font-extrabold'>
+                                <h2 className='text-blue-950 text-2xl xl:text-3xl 2xl:text-4xl font-extrabold'>
                                     Driveway Dreams warranty
                                 </h2>
-                                <p className='text-blue-950 text-[15px] leading-6'>
+                                <p className='text-blue-950  text-[16px] xl:text-[18px] 2xl:text-[20px] font-normal leading-6'>
                                     Because we are buying the car from us, we assume the warranty ourselves. &nbsp;
                                     <strong>
                                     Ensure you only purchase your cars from us, &nbsp;
@@ -236,7 +234,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='relative w-[100%] min-lg:w-[420px] h-[550px]'
+                    className='relative w-[100%] min-lg:w-[420px] h-[550px]  xl:w-[700px] xl:h-[700px]'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -270,11 +268,11 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         04.
                     </h2>
-                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
-                        <h2 className="text-blue-950 font-extrabold text-3xl">
+                    <div className="flex flex-col gap-4 w-[190%] min-lg:w-[400px] lg:w-[550px] xl:w-[580px] min-[2000px]:w-[1000px]">
+                        <h2 className="text-blue-950 font-extrabold text-3xl xl:text-4xl 2xl:text-5xl">
                             Risk-free purchase
                         </h2>
-                        <p className="text-blue-950 font-bold text-[18px] mb-6">
+                        <p className="text-blue-950 font-normal text-[18px] xl:text-[20px] 2xl:text-[24px] mb-6">
                             There's no risk to you when you buy a car on Driveway Dreams. We pride ourselves on transparency and the perfect condition of the cars, and we provide our customers with maximum guarantees.
                         </p>
                         {
@@ -285,7 +283,7 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     </div>
                 </motion.div>
                 <motion.div 
-                    className='w-[100%] min-lg:w-[400px] h-[330px] bg-white relative'
+                    className='w-[100%] min-lg:w-[400px] h-[330px] bg-white relative  xl:w-[700px] xl:h-[400px]'
                     initial={{ opacity: 0.5, x: 200 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ amount: 0.2, once: true }}
                     transition={{ ease: 'easeInOut' }}>
@@ -329,8 +327,8 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                     <h2 className="text-blue-600 font-extrabold text-3xl min-lg:text-4xl xl:text-5xl">
                         05.
                     </h2>
-                    <div className="flex flex-col gap-4 w-[100%] min-lg:w-[550px]">
-                        <h2 className="text-blue-950 font-extrabold text-3xl">
+                    <div className="flex flex-col gap-4 w-[190%] min-lg:w-[400px] lg:w-[550px] xl:w-[580px] min-[2000px]:w-[1000px]">
+                        <h2 className="text-blue-950 font-extrabold text-3xl xl:text-4xl 2xl:text-5xl">
                             We’ll deliver it to your house, or a pick-up point
                         </h2>
                         {
@@ -338,15 +336,15 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                                 <HtwDrop paragraph={item.paragraph} header={item.header} key={item.paragraph} />
                             ))
                         }
-                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit min-lg:h-[150px]'>
+                        <div className='flex gap-4 bg-[#C7FFE9] w-[100%] border border-[#95E7CE] pr-4 mt-8 h-fit'>
                             <div className='bg-[#95E7CE] pr-2 flex items-center'>
                                 <img src={sub_htw3} alt="Unique experience guaranteed" />
                             </div>
                             <div className='flex flex-col gap-1 py-4'>
-                                <h2 className='text-blue-950 text-2xl font-extrabold'>
+                                <h2 className='text-blue-950 text-2xl xl:text-3xl 2xl:text-4xl font-extrabold'>
                                     Unique experience guarantee
                                 </h2>
-                                <p className='text-blue-950 text-[15px] leading-6'>
+                                <p className='text-blue-950  text-[16px] xl:text-[18px] 2xl:text-[20px] font-normal leading-6'>
                                     We can guarantee you that having the car delivered to your home is a unique experience. That’s what our customers say, and we believe them.
                                 </p>
                             </div>
@@ -364,10 +362,10 @@ const HowItWorksComponent = forwardRef<HTMLDivElement, unknown>((_props, ref) =>
                             <TbTruckDelivery className="w-14 h-14 text-blue-600" />
                         </div>
                         <div className="flex flex-col gap-3 pr-4">
-                            <h2 className="text-[16px] font-extrabold text-blue-950">
+                            <h2 className="text-[16px] font-extrabold text-blue-950 xl:text-[20px]">
                                 Delivery to your home
                             </h2>
-                            <p className="text-[15px] font-medium text-blue-950 leading-6">
+                            <p className="text-[15px] font-medium text-blue-950 leading-6 xl:text-[18px]">
                                 We will bring your dream car directly to your door step.
                             </p>
                         </div>

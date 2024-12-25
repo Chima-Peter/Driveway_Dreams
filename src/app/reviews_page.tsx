@@ -385,51 +385,52 @@ const ReviewsPage = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}>
-            <div>
-                <img src={reviewImg1} alt="Come buy a car with us" className='bg-cover' />
+            <div className='w-[100%]'>
+                <img src={reviewImg1} alt="Come buy a car with us" className='bg-cover w-[100%]' />
             </div>
             <div 
-                className='flex flex-col gap-4 w-[50%] absolute bottom-20 left-12'
+                className='flex flex-col gap-2 sm:gap-4 w-[90%] sm:w-[50%] md:w-[70%] min-[899px]:w-[50%] 2xl:w-[70%] absolute bottom-8 min-[450px]:bottom-12 min-[899px]:bottom-20 lg:bottom-28 xl:bottom-32 min-[1600px]:bottom-44 2xl:bottom-48 left-4 sm:left-12'
                 >
                 <motion.p
-                     className='text-lg font-extrabold text-blue-800'
+                     className='text-[16px] md:text-lg xl:text-[24px] 2xl:text-[32px] font-extrabold text-blue-800'
                      variants={childVariants}>
                     Driveway Dreams
                 </motion.p>
                 <motion.h1 
-                    className='text-[3.8rem] leading-[1.2] font-extrabold text-blue-950'
+                    className='text-2xl ss:text-3xl min-[450px]:text-4xl md:text-6xl leading-none sm:leading-normal min-lg:text-7xl xl:text-8xl  min-[2000px]:text-[9rem] 2xl:text-[12rem] font-extrabold text-blue-950'
                     variants={childVariants}>
                     What do our customers say about us?
                 </motion.h1>
             </div>
+
             <motion.div 
-                className='flex flex-col gap-6 z-10 bg-white w-[450px] items-center p-6 rounded-lg shadow-lg border border-gray-300 absolute -bottom-32 right-20'
+                className='hidden xs:flex flex-col gap-6 z-10 bg-white w-[350px] sm:w-[450px] xl:w-[550px] 2xl:w-[700px] items-center p-6 rounded-lg shadow-lg border border-gray-300 absolute right-0 -bottom-32 min-[450px]:right-4 md:right-8 min-lg:right-20'
                 variants={childVariants}>
                 <div className='flex gap-2 items-center'>
                     <div className='flex flex-col gap-0 items-center'>
                         <div className="flex gap-2">
-                            <IoStar className="w-10 h-10 text-yellow-400" />
-                            <IoStar className="w-10 h-10 text-yellow-400" />
-                            <IoStar className="w-10 h-10 text-yellow-400" />
-                            <IoStar className="w-10 h-10 text-yellow-400" />
-                            <IoStarHalf  className="w-10 h-10 text-yellow-400" />
+                            <IoStar className="w-6 h-6 sm:w-10 sm:h-10 xl:w-14 xl:h-14 text-yellow-400" />
+                            <IoStar className="w-6 h-6 sm:w-10 sm:h-10 xl:w-14 xl:h-14 text-yellow-400" />
+                            <IoStar className="w-6 h-6 sm:w-10 sm:h-10 xl:w-14 xl:h-14 text-yellow-400" />
+                            <IoStar className="w-6 h-6 sm:w-10 sm:h-10 xl:w-14 xl:h-14 text-yellow-400" />
+                            <IoStarHalf  className="w-6 h-6 sm:w-10 sm:h-10 xl:w-14 xl:h-14 text-yellow-400" />
                         </div>
-                        <p className='text-[12px] font-extrabold italic text-blue-950 opacity-70'>
+                        <p className='text-[12px] md:text-[14px] min-lg:text-[16px] xl:text-[18px] 2xl:text-xl font-extrabold italic text-blue-950 opacity-70'>
                             1803 reviews
                         </p>
                     </div>
-                    <h2 className='text-[4rem] font-extrabold text-blue-950'>
+                    <h2 className='text-[2rem] sm:text-[3rem] min-lg:text-[4rem] xl:text-[5rem] font-extrabold text-blue-950'>
                         4.8
                     </h2>
                 </div>
-                <p className='text-lg italic font-extrabold text-blue-950'>
+                <p className='text-[14px] sm:text-[16px] md:text-lg xl:text-[18px] 2xl:text-[22px] italic font-extrabold text-blue-950'>
                     “If you're not happy, neither are we!”
                 </p>
             </motion.div>
         </motion.section>
         
         <motion.section
-          className='px-4 md:px-8 lg:px-12 flex w-[100%] flex-wrap gap-6 justify-evenly mt-32 mb-14'
+          className=' px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20 flex  w-[100%] flex-wrap gap-6 justify-evenly mt-32 mb-14 '
           initial="hidden"
           animate="visible"
           variants={reviewVariants}>
@@ -438,29 +439,29 @@ const ReviewsPage = () => {
               <motion.div 
                 initial={{ opacity: 0.3, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5, once: true }}
                 key={review.name} 
-                className="flex flex-col justify-between w-[100%] lg:w-[350px] flex-shrink-0 shadow-md rounded-lg bg-white py-6 px-4" >
+                className="flex flex-col justify-between w-[100%] sm:w-[45%] min-[1200px]:w-[350px] xl:w-[400px] 2xl:w-[550px] flex-shrink-0 shadow-md rounded-lg bg-white py-6 px-4" >
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-lg font-extrabold text-blue-950">
+                  <h3 className="text-lg xl:text-xl font-extrabold text-blue-950">
                     {review.name}
                   </h3>
                   <div className="flex gap-1">
-                    <IoStar className="w-5 h-5 text-yellow-400" />
-                    <IoStar className="w-5 h-5 text-yellow-400" />
-                    <IoStar className="w-5 h-5 text-yellow-400" />
-                    <IoStar className="w-5 h-5 text-yellow-400" />
-                    <IoStar  className="w-5 h-5 text-yellow-400" />
+                    <IoStar className="w-5 h-5 2xl:w-7 2xl:h-7 text-yellow-400" />
+                    <IoStar className="w-5 h-5 2xl:w-7 2xl:h-7 text-yellow-400" />
+                    <IoStar className="w-5 h-5 2xl:w-7 2xl:h-7 text-yellow-400" />
+                    <IoStar className="w-5 h-5 2xl:w-7 2xl:h-7 text-yellow-400" />
+                    <IoStar  className="w-5 h-5 2xl:w-7 2xl:h-7 text-yellow-400" />
                   </div>
-                  <p className="text-[16px] font-medium leading-6 text-blue-950">
+                  <p className="text-[16px] xl:text-lg 2xl:text-[20px] font-medium leading-6 text-blue-950">
                     {review.content}
                   </p>
                 </div>
                 <div className="flex items-center gap-4 mt-4 pt-4 border-t border-t-gray-500">
                   {review.icon}
                   <div className="flex flex-col gap-1">
-                    <p className="text-blue-950 font-bold text-sm">
+                    <p className="text-blue-950 font-bold text-sm xl:text-[16px] 2xl:text-lg">
                       {review.carPurchased}
                     </p>
-                    <Link to={`/cars/${review.carPurchased.toLowerCase()}`} className="text-blue-600 underline font-bold text-sm">
+                    <Link to={`/cars/${review.carPurchased.toLowerCase()}`} className="text-blue-600 underline font-bold text-sm xl:text-[16px] 2xl:text-lg">
                       Check out similar cars
                     </Link>
                   </div>
@@ -472,7 +473,7 @@ const ReviewsPage = () => {
 
         <section className='px-4 md:px-8 lg:px-12 mb-24 w-[100%]  flex justify-center items-center gap-12 flex-col'>
           <motion.h4 
-            className='text-3xl uppercase w-[100%] lg:w-[70%] text-center leading-relaxed text-blue-950 font-extrabold'
+            className='text-3xl min-lg:text-4xl xl:text-5xl 2xl:text-6xl text-blue-950 font-extrabold w-[90%]  text-center leading-12 uppercase'
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 1, once: true }} transition={{ duration: 1 }}>
             Get a car from us and become another happy customer of ours.
           </motion.h4>
