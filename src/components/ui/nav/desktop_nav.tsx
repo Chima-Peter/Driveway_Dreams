@@ -26,7 +26,7 @@ function DesktopNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // whenever user navigates away from current window, close the minor login tab
+  // whenever user navigates away from current window, close the login tab
   useEffect(() => {
    setIsLoginModalOpen(false)
   }, [location.pathname])

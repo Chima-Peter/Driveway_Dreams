@@ -41,10 +41,10 @@ const HowItWorksPage = () => {
       }
       
   return (
-    <main className='flex flex-col gap-12 pt-[80px] font-main'>
+    <main className='flex flex-col gap-12 pt-[60px] min-lg:pt-[80px] ] font-main'>
         <section className='flex flex-col min-lg:flex-row justify-between w-[100%] relative'>
             <motion.div 
-                className='flex flex-col gap-6  pl-4 sm:pl-8 min-lg:pl-10 xl:pl-14 2xl:pl-20  pt-10 mb-6 sm:mb-36 min-lg:mb-32 xl:w-[600px] 2xl:w-[1500px]'
+                className='flex flex-col gap-6  px-4 sm:px-8 min-lg:pl-10 xl:pl-14 2xl:pl-20  pt-10 mb-6 sm:mb-36 min-lg:mb-32 w-[100%] xl:w-[600px] 2xl:w-[1500px]'
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}>

@@ -21,7 +21,7 @@ const LoginModal = () => {
   return (
     <motion.div 
         initial={{ opacity: 0 }} animate={{ opacity : 1 }} transition={{ duration: 0.2, ease: 'easeInOut' }}
-        className="w-[300px] xl:w-[400px] 2xl:w-[500px] rounded-md p-6 bg-white font-main flex flex-col gap-3 absolute top-8 left-[-120px] xl:-left-[170px] xl:top-12 2xl:left-[-220px] shadow-lg border border-gray-100">
+        className="sm:w-[300px] xl:w-[400px] 2xl:w-[500px] rounded-md p-6 bg-white font-main flex flex-col gap-3 mt-2 min-[1001px]:mt-0 min-[1001px]:absolute top-0 right-0 min-[1001px]:top-8 min-[1001px]:left-[-120px] xl:-left-[170px] xl:top-12 2xl:left-[-220px] shadow-lg border border-gray-100">
         <ul className="flex flex-col gap-3 py-4 border-b border-b-gray-500">
             <Link to={'/favorite-cars'} className="flex gap-4 px-4 py-2 group/item: hover:bg-blue-50 hover:font-semibold items-center">
                 <FaRegHeart className="w-5 h-5 xl:w-8 xl:h-8 text-black" />

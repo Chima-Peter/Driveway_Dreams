@@ -379,7 +379,7 @@ const ReviewsPage = () => {
       };
 
     return (
-     <main className='flex flex-col gap-12 pt-[80px] font-main bg-[#F5F7FB]'>
+     <main className='flex flex-col gap-12 pt-[60px] min-lg:pt-[80px] ] font-main bg-[#F5F7FB]'>
         <motion.section 
             className="flex gap-6 relative"
             initial="hidden"
@@ -389,7 +389,7 @@ const ReviewsPage = () => {
                 <img src={reviewImg1} alt="Come buy a car with us" className='bg-cover w-[100%]' />
             </div>
             <div 
-                className='flex flex-col gap-2 sm:gap-4 w-[90%] sm:w-[50%] md:w-[70%] min-[899px]:w-[50%] 2xl:w-[70%] absolute bottom-8 min-[450px]:bottom-12 min-[899px]:bottom-20 lg:bottom-28 xl:bottom-32 min-[1600px]:bottom-44 2xl:bottom-48 left-4 sm:left-12'
+                className='flex flex-col gap-2 sm:gap-4 w-[90%] sm:w-[50%] md:w-[70%] min-[899px]:w-[50%] 2xl:w-[70%] absolute bottom-8 min-[450px]:bottom-10 min-[899px]:bottom-20 lg:bottom-28 xl:bottom-32 min-[1600px]:bottom-44 2xl:bottom-48 left-4 sm:left-12'
                 >
                 <motion.p
                      className='text-[16px] md:text-lg xl:text-[24px] 2xl:text-[32px] font-extrabold text-blue-800'

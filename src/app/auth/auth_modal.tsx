@@ -27,7 +27,7 @@ const AuthModal = () => {
         <main className={`flex-col z-50 fixed top-0 backdrop-blur-sm items-center justify-center w-[100%] h-[100vh] right-0 ${auth ? 'flex' : 'hidden'}`}>
             <motion.section 
                 initial={{ opacity: 0, y: -60 }} animate={{ opacity : auth ? 1 : 0, y : auth ? 0 : -60 }} transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className={`min-lg:w-[500px] xl:h-[500px] xl:w-[600px] 2xl:w-[800px] min-lg:h-[450px] overflow-y-auto customScroll font-main flex flex-col border border-gray-300 rounded-lg py-14 bg-[rgb(245,247,251)] shadow-2xl relative`}>
+                className={`w-[90%] sm:w-[400px] min-lg:w-[500px] xl:h-[500px] xl:w-[600px] 2xl:w-[800px] min-lg:h-[450px] overflow-y-auto customScroll font-main flex flex-col border border-gray-300 rounded-lg py-14 bg-[rgb(245,247,251)] shadow-2xl relative`}>
                     <button className="absolute right-4 top-3" onClick={toggleModal}>
                         <AiOutlineClose className="w-6 h-6 xl:w-8 xl:h-8 text-blue-600" />
                     </button>

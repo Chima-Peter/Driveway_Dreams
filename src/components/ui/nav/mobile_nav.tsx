@@ -1,97 +1,82 @@
-import { useState, useEffect } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { Link, NavLink } from "react-router-dom";
-import { motion } from 'framer-motion'
-import { MdCancelPresentation } from "react-icons/md";
-import scrollToTop from "../../utils/scroll_to_top";
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { TiThMenu } from "react-icons/ti";
 
-function MobileNav() {
-   const [isScrolled, setIsScrolled] = useState(false)
-   const [icon, setIcon] = useState(true)
+import useModalContext from '../../hooks/modal_hook';
 
-   // toggle navigation
-   const handleIcon = () => {
-      setIcon(!icon)
-   }
-
-   // close navigation and scroll to page top
-   const closeIcon = () => {
-      setIcon(true)
-      scrollToTop()
-   }
+import SideBar from './sidebar';
+import scrollToTop from '../../utils/scroll_to_top';
 
 
-   // onscroll event
+
+
+const MobileNav = () => {
+    const { nav, setNav } = useModalContext()
+
+    const openNavbar = () => {
+        setNav(true)
+    }
+
+    const location = useLocation()
+
+
    useEffect(() => {
-      const handleScroll = () => {
-         setIsScrolled(window.scrollY > 0)
+      setNav(false);
+   }, [location])
+
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    // add bg and shadow for nav onscroll event
+   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
       }
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-   }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
-
-   // framer motion for animation
-   const slideVariants = {
-      initial: {
-         y: '-10%',
-         opacity: 0
-      },
-      animate: {
-         y: 0,
-         opacity: 1
-      }
-   }
-
-
-   return (
-      <nav className={`flex flex-col text-white bg-blue-900 w-full gap-4 fixed z-10 border-b border-b-blue-900 px-4 sm:px-8 min-lg:px-10 xl:px-14 2xl:px-20  ${isScrolled ? 'shadow-lg' : ''} ${!icon ? 'h-[100%] border-b-0' : ''}`}>
-         <div className="flex w-full justify-between items-center py-2 md:py-5">
-            <Link onClick={closeIcon} to={'/'} className={`font-semibold text-xl`}>
-               MACELO AUTO<small className='text-xs'>s</small>
+  return (
+    <>
+        <nav className={`flex font-main justify-between text-blue-950 bg-white items-center w-[100%] fixed h-fit border-b border-b-gray-300 z-30 px-4 sm:px-8 min-lg:px-10 xl:px-14 py-4 2xl:px-20 ${isScrolled ? ' shadow-lg' : ''}`}>
+            <Link onClick={scrollToTop} to={'/'} className={`font-extrabold text-2xl xl:text-3xl 2xl:text-4xl`}>
+               Driveway Dreams
             </Link>
-               {
-                  icon && <GiHamburgerMenu className="w-7 h-7 cursor-pointer" onClick={handleIcon} />
-               }
-               {
-                  !icon && <MdCancelPresentation className="w-7 h-7 cursor-pointer" onClick={handleIcon} />
-               }
-         </div>
-         {   
-            !icon &&                
-               <motion.ul 
-                  className='text-xs font-medium flex box-border flex-col gap-4 px-4 pb-4'
-                  variants={slideVariants}
-                  initial='initial'
-                  animate='animate'
-                  transition= {{
-                        ease: 'linear',
-                        duration: 0.3
-                  }}>
-                  <li className={`hover:underline text-xs tracking-wide font-semibold`}>
-                     <NavLink onClick={closeIcon} to={'/inventory'}>Inventory</NavLink>
-                  </li>
-                  <li className={`hover:underline text-xs tracking-wide font-semibold`}>
-                     <NavLink onClick={closeIcon} to={'/find'}>
-                        Find a Car
-                     </NavLink>
-                  </li>
-                  <li className={`hover:underline text-xs tracking-wide font-semibold`}>
-                     <NavLink onClick={closeIcon} to={'/shopping-cart'} className="flex gap-2">
-                        <span>
-                           Shopping Cart
-                        </span>
-                     </NavLink>
-                  </li>
-                  <li className={`hover:underline  text-xs tracking-wide font-semibold}`}>
-                     <NavLink onClick={closeIcon} to={'/contact-us'}>
-                        Contact Us
-                     </NavLink>
-                  </li>
-               </motion.ul>
-         }
-      </nav>
-   )
+            <div className='flex items-center gap-2 xs:gap-4 justify-between'>
+                {/* <button type="button" className='p-3 xs:p-4 bg-gray-100 hover:bg-black group/btn rounded-xl'>
+                    <RiShoppingBasketLine className='w-4 h-4 xs:w-6 xs:h-6 group-hover/btn:text-white' />
+                </button> */}
+                <button onClick={openNavbar} type="button" className=''>
+                    <TiThMenu className='w-4 h-4 xs:w-7 xs:h-7 md:w-8 h-8 text-blue-950' />
+                </button>
+            </div>
+        </nav>
+        <AnimatePresence mode="sync">
+            {nav ? (
+                <motion.div
+                    key="sidebar"
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '100%' }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    className='bg-white fixed top-0 w-[100vw] z-50 overflow-hidden min-h-[100vh] '
+                >
+                    <SideBar />
+                </motion.div>
+            ) : (
+                <motion.div
+                    key="empty"
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '100%' }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                >
+                    <div />
+                </motion.div>
+            )}
+        </AnimatePresence>
+    </>
+  )
 }
 
 export default MobileNav

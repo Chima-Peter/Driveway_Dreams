@@ -140,7 +140,7 @@ const HomePage = () => {
     
 
   return (
-    <main className="font-main pt-[5%] w-[100%] flex flex-col gap-16 overflow-hidden">
+    <main className="font-main pt-[60px] min-lg:pt-[5%] w-[100%] flex flex-col gap-16 overflow-hidden">
       <HomeBg />
 
       <CarSlides />
