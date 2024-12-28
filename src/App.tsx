@@ -18,7 +18,7 @@ export function App() {
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/" element={<BuyPage />} />
+            <Route path="/cars" element={<BuyPage />} />
          </Routes> 
          <Footer />
       </BrowserRouter>
